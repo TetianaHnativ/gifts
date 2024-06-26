@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Raleway:wght@700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/wrapper.css" />
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+
+    <link rel="stylesheet" href="../styles/modal.css" />
+
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <title>Gifts</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header"></header>
+
+        <main>
+            <section class="hero">
+                <div class="img-hero-container">
+                    <h1 class="hero-title">
+                        Подарунки на всі випадки життя: обирай, купуй, ідею додавай!
+                    </h1>
+                    <button class="questionnaire-link">Заповнити анкету</button>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="services-main-title">Шукаєш подарунок?</h2>
+                <ul class="services-list">
+                    <li>
+                        <img class="services-img" src="../imgs/questionnaire-img.jpg"
+                            alt="Блокнот та олівець" />
+                        <h3 class="services-title">Заповнюй анкету</h3>
+                        <p class="services-paragraph">
+                            Залежно від даних анкети визнач свій асортимент товарів
+                        </p>
+                    </li>
+                    <li>
+                        <img class="services-img" src="../imgs/gift-img.jpg" alt="Подарунки в коробках" />
+                        <h3 class="services-title">Купуй подарунок</h3>
+                        <p class="services-paragraph">
+                            Обери бажаний товар у магазині подаруків
+                        </p>
+                    </li>
+                    <li>
+                        <img class="services-img" src="../imgs/idea-img.jpg" alt="Лампочка в руках" />
+                        <h3 class="services-title">Знаходь ідею</h3>
+                        <p class="services-paragraph">
+                            Знайди ідею для подарунку серед ідей або додай власну
+                        </p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer id="footer"></footer>
+    </div>
+
+    <div class="modal-container" id="message-modal"></div>
+    
+    <script src="../scripts/pageLoader.js"></script>
+    <script type="module" src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+main {
+    min-height: 100vh;
+}
+
+/* ------------------------------------------------------------------- Hero ------------------------------------------------------------------- */
+
+.hero {
+    display: flex;
+    justify-content: center;
+    background-color: #ffbe03;
+}
+
+.img-hero-container {
+    background-image: url(../imgs/hero-img.jpg);
+    min-width: 62.5rem;
+    min-height: 31.25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3.125rem;
+    max-width: 62.5rem;
+    letter-spacing: 0.125rem;
+    text-align: center;
+    color: #ffbc03;
+    text-shadow: -0.0625rem -0.0625rem 0 black, 0.0625rem -0.0625rem 0 black, -0.0625rem 0.0625rem 0 black, 0.0625rem 0.0625rem 0 black;
+    margin-bottom: 2.5rem;
+}
+
+.questionnaire-link {
+    font-size: 1.5625rem;
+    background-color: #ffbc03;
+    color: #053053;
+    border: 0.0625rem solid #ffbc03;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+}
+
+.questionnaire-link:hover,
+.questionnaire-link:focus {
+    color: #038cff;
+}
+
+/* ------------------------------------------------------------------- Services ------------------------------------------------------------------- */
+
+.services-main-title {
+    font-size: 2.1875rem;
+    text-align: center;
+    margin-bottom: 1.875rem;
+    padding-top: 3.125rem;
+    color: #ffbc03;
+    letter-spacing: 0.125rem;
+}
+
+.services-list {
+    display: flex;
+    gap: 1%;
+    justify-content: space-evenly;
+    margin-bottom: 3.125rem;
+}
+
+.services-img {
+    width: 18.75rem;
+    height: 15.625rem;
+}
+
+.services-list li:hover .services-img {
+    transform: scale(0.8);
+}
+
+.services-title {
+    font-size: 1.5625rem;
+    text-align: center;
+    margin-bottom: 0.625rem;
+    padding-top: 0.625rem;
+    color: #ffbc03;
+    text-shadow: -0.0625rem -0.0625rem 0 #053053, 0.0625rem -0.0625rem 0 #053053, -0.0625rem 0.0625rem 0 #053053, 0.0625rem 0.0625rem 0 #053053;
+}
+
+.services-paragraph {
+    max-width: 18.75rem;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 0.625rem;
+    color: #038cff;
+}
+
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .img-hero-container {
+        min-width: 25rem;
+    }
+
+    .services-list {
+        flex-direction: column;
+        gap: 1.875rem;
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .questionnaire-link {
+        padding: 0.625rem;
+        border-radius: 0.625rem;
+    }
+
+    .services-main-title {
+        font-size: 1.875rem;
+    }
+}
+
+
+@media (max-width: 425px) {
+    .img-hero-container {
+        min-width: 15.625rem;
+    }
+
+    .hero-title {
+        font-size: 1.875rem;
+    }
+
+    .questionnaire-link {
+        font-size: 1.125rem;
+    }
+
+    .services-main-title {
+        font-size: 1.5rem;
+    }
+
+    .services-img {
+        max-width: 12.5rem;
+        height: 11.25rem;
+    }
+
+    .services-title {
+        font-size: 1.125rem;
+    }
+
+    .services-paragraph {
+        max-width: 12.5rem;
+        font-size: 1rem;
+    }
+}

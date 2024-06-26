@@ -1,0 +1,141 @@
+header {
+    min-height: 10vh;
+    background-color: #fff;
+    display: flex;
+    gap: 15%;
+
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.75rem;
+    text-align: center;
+    color: #ffbe03;
+}
+
+.logo-icon {
+    max-width: 1.75rem;
+}
+
+.logo-title-part2 {
+    color: #038cff;
+}
+
+.header-links-list {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.header-links-item {
+    text-align: center;
+    align-items: center;
+    font-size: 1.125rem;
+}
+
+.header-links-item .fas {
+    display: none;
+}
+
+.main-link {
+    color: #ffbe03;
+}
+
+.main-link:hover,
+.main-link:focus {
+    color: #038cff;
+}
+
+.shop-link {
+    color: #038cff;
+}
+
+.shop-link:hover,
+.shop-link:focus {
+    color: #ffbe03;
+}
+
+.ideas-link {
+    color: #ffbe03;
+}
+
+.ideas-link:hover,
+.ideas-link:focus {
+    color: #038cff;
+}
+
+.login-link {
+    font-size: 1rem;
+    background-color: #038cff;
+    color: #fff;
+    border: 1px solid #038cff;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+}
+
+.login-link:hover,
+.login-link:focus {
+    color: #ffbe03;
+}
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+    header {
+        gap: 1%;
+        padding: 0 0.25rem;
+    }
+
+    .logo-icon {
+        width: 1.25rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .header-links-item {
+        font-size: 1rem;
+    }
+
+    .login-link {
+        padding: 0.3125rem;
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header-links-item .text-part-2 {
+        display: none;
+    }
+}
+
+
+@media (max-width: 425px) {
+
+    .logo-icon {
+        width: 1.25rem;
+    }
+
+    .logo {
+        font-size: 1.125rem;
+    }
+
+    .header-links-item .text {
+        display: none;
+    }
+
+    .header-links-item .fas {
+        display: inline;
+        font-size: 1.25rem;
+    }
+
+    .login-link {
+        font-size: 0.75rem;
+    }
+}
