@@ -9,6 +9,8 @@ function loadHTML(id, url) {
 window.onload = function () {
     loadHTML('header', 'header.html');
     loadHTML('footer', 'footer.html');
-    
+
     loadHTML('message-modal', 'messageModal.html');
 };
+
+export { loadHTML };

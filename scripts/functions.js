@@ -4,7 +4,9 @@ function gaps(event) {
     }
 }
 
-function showMessage(modal) {
+function showMessage(modal, title) {
+    document.getElementById("modal-title-message").textContent = title;
+
     setTimeout(function () {
         modal.style.display = "flex";
     }, 0);
@@ -12,6 +14,15 @@ function showMessage(modal) {
     setTimeout(function () {
         modal.style.display = "none";
     }, 5000);
+}
+
+async function modalManagement(modal, form, closeButton) {
+    if (closeButton) {
+        closeButton.addEventListener("click", function () {
+            modal.style.display = "none";
+            form.submit();
+        });
+    }
 }
 
 async function delay(ms) {
@@ -32,5 +43,5 @@ async function waitForElement(selector, timeout = 5000) {
 }
 
 
-export { gaps, delay, waitForElement, showMessage };
+export { gaps, delay, waitForElement, showMessage, modalManagement };
 

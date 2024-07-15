@@ -1,0 +1,91 @@
+main {
+    background-image: url(../imgs/Ukrainian-flag-img.jpg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration {
+    background-color: #ffbe03;
+    max-width: 25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+
+    padding: 1.25rem;
+    margin: 0.625rem;
+    border: 0.3125rem outset #ffbe03;
+    border-radius: 0.625rem;
+}
+
+.registration-title {
+    font-size: 1.875rem;
+    color: #053053;
+}
+
+.registration-parameter {
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 0.3125rem;
+}
+
+.registration-button {
+    font-size: 1.5625rem;
+    text-align: center;
+    background-color: #053053;
+    color: #fff;
+    border-color: #053053;
+    cursor: pointer;
+}
+
+.authorization-question {
+    font-size: 1.125rem;
+    align-items: center;
+}
+
+.authorization-link {
+    color: #038cff;
+}
+
+.message {
+    text-align: center;
+    color: rgb(255, 0, 0);
+}
+
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 425px) {
+    .registration {
+        gap: 1.25rem;
+        padding: 0.625rem;
+    }
+
+    .registration-title {
+        font-size: 1rem;
+    }
+
+    .registration-parameter {
+        font-size: 0.75rem;
+        text-align: center;
+        padding: 0.3125rem;
+    }
+
+    .registration-button {
+        font-size: 0.875rem;
+    }
+
+    .authorization-question {
+        font-size: 0.75rem;
+        align-items: center;
+    }
+
+    .message {
+        font-size: 0.75rem;
+    }
+}

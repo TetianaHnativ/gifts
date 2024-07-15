@@ -1,4 +1,4 @@
-import { waitForElement } from "./function.js";
+import { waitForElement } from "./functions.js";
 
 async function isUserAuthorized() {
     try {

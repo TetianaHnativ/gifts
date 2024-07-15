@@ -1,4 +1,4 @@
-import { waitForElement, showMessage } from "./function.js";
+import { waitForElement, showMessage } from "./functions.js";
 
 function questionnaireLink() {
     window.location.href = "questionnaire.html";
@@ -25,7 +25,7 @@ async function questionnaireLinkGo() {
             if (user) {
                 questionnaireLink();
             } else {
-                showMessage(messageModal);
+                showMessage(messageModal, "Для заповнення анкети авторизуйтеся, будь ласка!");
             }
         });
     } catch (error) {
