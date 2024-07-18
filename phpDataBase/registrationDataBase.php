@@ -30,7 +30,7 @@ $stmt->execute();
 $result_check_email = $stmt->get_result();
 
 if ($result_check_email->num_rows > 0) {
-    echo ("Email is already registered");
+    echo json_encode("Email is already registered");
 } else {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -40,9 +40,9 @@ if ($result_check_email->num_rows > 0) {
     $stmt->bind_param("sssss", $surname, $name, $phone, $email, $hashed_password);
 
     if ($stmt->execute()) {
-        echo "Registration successful";
+        echo json_encode("Registration successful");
     } else {
-        echo "Error: " . $stmt->error;
+        echo json_encode("Error: " . $stmt->error);
     }
 }
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Raleway:wght@700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/wrapper.css" />
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/authorization.css" />
+
+    <link rel="stylesheet" href="../styles/modal.css" />
+
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <title>Gifts</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header"></header>
+
+        <main>
+            <main>
+                <form class="authorization">
+                    <h1 class="authorization-title">Авторизація</h1>
+                    <input type="email" class="authorization-parameter" id="login-email"
+                        placeholder="Введіть електронну пошту" required />
+                    <input type="password" class="authorization-parameter" id="password" placeholder="Введіть пароль"
+                        required />
+                    <p class="message" id="message-authorization"></p>
+                    <button class="authorization-button">Увійти</button>
+                    <p class="registration-question">
+                        Немає акаунту?
+                        <a href="./registration.html" class="registration-link">Зареєструйтеся!</a>
+                    </p>
+                    <p class="password-link">Забули пароль?</p>
+                </form>
+            </main>
+        </main>
+    </div>
+
+    <div class="modal-container" id="authorization-modal">
+        <div class="container">
+            <button class="modal-close-button" id="authorization-close-button">
+                x
+            </button>
+            <h3 class="modal-title">
+                На електронну адресу, вказану при реєстрації, прийде число (чекати до 1 хв)
+            </h3>
+            <form class="modal-form">
+                <input type="email" name="email" class="modal-field-input" id="modal-email"
+                    placeholder="Введіть електронну пошту" pattern=".+@.+\..+"
+                    title="Домен електронної адреси має містити крапку. Необхідний формат: example@example.com"
+                    required />
+                <button class="modal-form-button" id="button-modal-send">
+                    Відправити
+                </button>
+
+                <input type="text" name="number-confirmation" class="modal-field-input" id="modal-number-confirmation"
+                    placeholder="Введіть число" minlength="6" maxlength="6" pattern="^\d+$" title="Тільки цифри"
+                    disabled required />
+                <button class="modal-form-button" id="button-modal-confirmation" disabled>
+                    Підтвердити
+                </button>
+
+                <input type="password" name="password" class="modal-field-input" id="modal-password"
+                    placeholder="Введіть новий пароль" pattern="^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)\S*$" title="Пароль
+              має містити хоча б одну велику та маленьку літери та хоча б одну
+              цифру, все без пробілів!" minlength="8" disabled required />
+                <input type="password" name="password-confirmation" class="modal-field-input"
+                    id="modal-password-confirmation" placeholder="Підтвердьте пароль" minlength="8" disabled required />
+                <p class="message" id="message-modal-password"></p>
+                <button class="modal-form-button" id="button-modal-save" disabled>
+                    Зберегти
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-container" id="message-modal"></div>
+
+    <script type="module" src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/authorization.js"></script>
+</body>
+
+</html>

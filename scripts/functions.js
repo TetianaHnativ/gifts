@@ -4,6 +4,8 @@ function gaps(event) {
     }
 }
 
+// ----------------- modal functions start -----------------
+
 function showMessage(modal, title) {
     document.getElementById("modal-title-message").textContent = title;
 
@@ -25,6 +27,8 @@ async function modalManagement(modal, form, closeButton) {
     }
 }
 
+ // ------------------- modal function end -------------------
+
 async function delay(ms) {
     await new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -42,6 +46,27 @@ async function waitForElement(selector, timeout = 5000) {
     throw new Error(`Element with selector "${selector}" not found within ${timeout}ms`);
 }
 
+async function dataBaseConnection(method, server, myData) { 
+    try {
+        const response = await fetch(server, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(myData),
+            cache: "no-cache",
+        });
+        if (!response.ok) {
+            throw new Error("status code: " + response.status);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error);
+        return error;
+    }
+}
 
-export { gaps, delay, waitForElement, showMessage, modalManagement };
+
+export { gaps, delay, waitForElement, showMessage, modalManagement, dataBaseConnection };
 

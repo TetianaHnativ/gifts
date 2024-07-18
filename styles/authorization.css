@@ -1,0 +1,200 @@
+main {
+    background-image: url(../imgs/Ukrainian-flag-img.jpg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.authorization {
+    background-color: #ffbe03;
+    max-width: 25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.25rem;
+    padding: 3.125rem;
+    margin: 0.625rem 0rem;
+    border: 0.3125rem outset #ffbe03;
+    border-radius: 0.625rem;
+}
+
+.authorization-title {
+    font-size: 1.875rem;
+    color: #053053;
+}
+
+.authorization-parameter {
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 0.3125rem;
+}
+
+.authorization-button {
+    font-size: 1.5625rem;
+    text-align: center;
+    background-color: #053053;
+    color: #fff;
+    border-color: #053053;
+    cursor: pointer;
+}
+
+.registration-question {
+    font-size: 1.125rem;
+    align-items: center;
+}
+
+.registration-link {
+    color: #038cff;
+}
+
+.password-link {
+    font-size: 1.125rem;
+    background-color: #ebed4d;
+    color: #038cff;
+    border: solid 0.125rem #053053;
+    padding: 0.5rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    margin-top: 0.625rem;
+}
+
+.password-link:hover,
+.password-link:focus {
+    color: #053053;
+}
+
+.message {
+    text-align: center;
+    color: rgb(255, 0, 0);
+}
+
+/* ---------------------------------------------------------------------- Modal ----------------------------------------------------------------- */
+.container {
+    margin: 0.625rem;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.modal-title {
+    max-width: 25rem;
+}
+
+.modal-field-input {
+    text-align: center;
+    font-size: 1.5625rem;
+}
+
+.modal-form-button {
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.3125rem;
+    color: #ffbc03;
+    background-color: #038cff;
+    border-color: #053053;
+    cursor: pointer;
+    border-radius: 0.625rem;
+}
+
+.modal-form-button:focus,
+.modal-form-button:hover {
+    background-color: #053053;
+    color: #fff;
+}
+
+#button-modal-save {
+    font-size: 1.125rem;
+    padding: 0.5rem;
+    color: #fff;
+    background-color: #053053;
+    border-color: #053053;
+}
+
+#button-modal-save:focus,
+#button-modal-save:hover {
+    background-color: #038cff;
+    border-color: #038cff;
+    color: #ffbc03;
+}
+
+.modal-field-input:disabled {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.modal-form-button:disabled,
+#button-modal-save:disabled {
+    color: #053053;
+    background-color: #038eff80;
+    border-color: #038eff80;
+}
+
+.modal-form-button:disabled:focus,
+.modal-form-button:disabled:hover,
+#button-modal-save:disabled:focus,
+#button-modal-save:disabled:hover {
+    background-color: #038eff80;
+    border-color: #053053;
+    color: #053053;
+}
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 425px) {
+    .authorization {
+        gap: 0.75rem;
+        padding: 0.625rem;
+    }
+
+    .authorization-title {
+        font-size: 1rem;
+    }
+
+    .authorization-parameter {
+        font-size: 0.75rem;
+        text-align: center;
+        padding: 0.3125rem;
+    }
+
+    .authorization-button {
+        font-size: 0.875rem;
+    }
+
+    .registration-question {
+        font-size: 0.75rem;
+        align-items: center;
+    }
+
+    .password-link {
+        font-size: 0.75rem;
+        margin-bottom: 0.625rem;
+        padding: 0.3125rem;
+    }
+
+    .message {
+        font-size: 0.75rem;
+    }
+
+    /* ------------------------------------------------------------------ Modal Adaptive ------------------------------------------------------------- */
+    .modal-title {
+        font-size: 1.125rem;
+        max-width: 15.625rem;
+    }
+
+    .modal-field-input {
+        font-size: 1.125rem;
+    }
+
+    .modal-form-button {
+        font-size: 1rem;
+    }
+}

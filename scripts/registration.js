@@ -5,7 +5,7 @@ window.onload = function () {
     loadHTML('message-modal', 'messageModal.html');
 };
 
-import { gaps, waitForElement, showMessage, modalManagement } from "./functions.js";
+import { gaps, waitForElement, showMessage, modalManagement, dataBaseConnection } from "./functions.js";
 
 const surname = document.getElementById("surname");
 const username = document.getElementById("name");
@@ -55,40 +55,27 @@ async function saveUserData() {
         password: password.value,
     };
 
-    // ----------------- modal starts -----------------
-    const messageModal = await waitForElement("#message-modal");
-    const closeModalMessage = await waitForElement("#close-modal-message");
+    const dataBaseConnectionResult = await dataBaseConnection("POST", "../phpDataBase/registrationDataBase.php", userData);
 
-    modalManagement(messageModal, registrationForm, closeModalMessage);
-    // ------------------- modal ends -------------------
+    if (dataBaseConnectionResult === "Email is already registered") {
+        message.textContent = "Користувач з такою поштою вже зареєстрований у системі";
+        
+    } else if (dataBaseConnectionResult === "Registration successful") {
 
-    fetch("../phpDataBase/registrationDataBase.php", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData),
-    })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("status code:" + response.status);
-            }
-            return response.text();
-        })
-        .then((data) => {
-            if (data.trim() === "Email is already registered") {
-                message.textContent =
-                    "Користувач з такою поштою вже зареєстрований у системі";
-            } else if (data.trim() === "Registration successful") {
-                message.textContent = "";
+        message.textContent = "";
 
-                showMessage(messageModal, "Реєстрація успішна!");
+        // ----------------- modal starts -----------------
 
-                registrationForm.submit();
-            }
-        })
-        .catch((error) => {
-            console.error("error: ", error);
-        });
+        const messageModal = await waitForElement("#message-modal");
+        const closeModalMessage = await waitForElement("#close-modal-message");
+
+        modalManagement(messageModal, registrationForm, closeModalMessage);
+
+        showMessage(messageModal, "Реєстрація успішна!");
+
+        // ------------------- modal ends -------------------
+
+        setTimeout(() => registrationForm.submit(), 5000);
+
+    }
 }
-
