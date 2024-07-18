@@ -4,7 +4,6 @@ $username = "root";
 $password = "secret";
 $dbname = "gifts";
 
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -19,7 +18,6 @@ $password = mysqli_real_escape_string($conn, $jsonData['password']);
 if (empty($email) || empty($password)) {
     die("Empty fields");
 }
-
 
 $sql_check_email = "SELECT * FROM users WHERE email=?";
 $stmt = $conn->prepare($sql_check_email);

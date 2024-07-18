@@ -18,7 +18,6 @@ $phone = mysqli_real_escape_string($conn, $jsonData['phone']);
 $email = mysqli_real_escape_string($conn, $jsonData['email']);
 $password = mysqli_real_escape_string($conn, $jsonData['password']);
 
-
 if (empty($surname) || empty($name) || empty($phone) || empty($email) || empty($password)) {
     die("Empty fields");
 }

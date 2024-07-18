@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Raleway:wght@700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/wrapper.css" />
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/shop.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+
+    <link rel="stylesheet" href="../styles/modal.css" />
+
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <title>Gifts</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header"></header>
+
+        <main>
+            <ul class="buttons-list">
+                <li><button class="shop-button">Усі</button></li>
+                <li><button class="shop-button">Для дітей</button></li>
+                <li><button class="shop-button">Для жінок</button></li>
+                <li><button class="shop-button">Для чоловіків</button></li>
+                <li><button class="shop-button">Для літніх людей</button></li>
+                <li><button class="shop-button">Канцелярія</button></li>
+                <li><button class="shop-button">Техніка</button></li>
+                <li><button class="shop-button">Товари для дому</button></li>
+                <li><button class="shop-button">Свята</button></li>
+            </ul>
+
+            <div class="sort-search-container">
+                <div class="search-container">
+                    <input type="search" class="search-input" placeholder="Пошук по назві" />
+                    <button type="submit" class="search-button">Пошук</button>
+                </div>
+
+                <a href="#" class="basket-link">
+                    <i class="fa fa-shopping-basket"></i>
+                    <span class="basket-number"></span>
+                </a>
+
+                <select class="sort-list">
+                    <option value="general" class="sort-option">
+                        Загальний порядок сортування
+                    </option>
+                    <option value="cheap" class="sort-option">
+                        Від дешевих до дорогих
+                    </option>
+                    <option value="expensive" class="sort-option">
+                        Від дорогих до дешевих
+                    </option>
+                </select>
+            </div>
+
+            <ul class="gifts-list"></ul>
+        </main>
+
+        <footer id="footer"></footer>
+    </div>
+
+    <div class="modal-container" id="message-modal"></div>
+
+    <script type="module" src="../scripts/pageLoader.js"></script>
+    <script type="module" src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/shop.js"></script>
+</body>
+
+</html>

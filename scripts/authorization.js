@@ -5,7 +5,7 @@ window.onload = function () {
     loadHTML('message-modal', 'messageModal.html');
 };
 
-import { gaps, waitForElement, showMessage, modalManagement, dataBaseConnection } from "./functions.js";
+import { gaps, ModalMessage, dataBaseConnection } from "./functions.js";
 
 const user = localStorage.getItem("user") || "";
 
@@ -21,9 +21,9 @@ if (authorizationForm) {
 
     authorizationForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-        
+
         if (user) {
-            ModalMessage("Ви вже авторизовані в системі!");
+            ModalMessage("Ви вже авторизовані в системі!", authorizationForm);
         } else {
             authentication();
         }
@@ -32,9 +32,7 @@ if (authorizationForm) {
 
 window.addEventListener("beforeunload", () => authorizationForm.reset());
 
-if (loginEmail) {
-    loginEmail.addEventListener("blur", () => loginEmail.value = loginEmail.value.trim());
-}
+if (loginEmail) loginEmail.addEventListener("blur", () => loginEmail.value = loginEmail.value.trim());
 
 async function authentication() {
     const userData = {
@@ -58,20 +56,8 @@ async function authentication() {
 
         messageAuthorization.textContent = "";
 
-        ModalMessage("Авторизація успішна!");
-
-        setTimeout(() => authorizationForm.submit(), 5000);
+        ModalMessage("Авторизація успішна!", authorizationForm);
     }
 }
 
-async function ModalMessage(title) {
-    const messageModal = await waitForElement("#message-modal");
-    const closeModalMessage = await waitForElement("#close-modal-message");
-
-    showMessage(messageModal, title);
-
-    modalManagement(messageModal, authorizationForm, closeModalMessage);
-}
-
-passwordLink.addEventListener("click", () => ModalMessage("Ця функція в розробці!"));
-
+if (passwordLink) passwordLink.addEventListener("click", () => ModalMessage("Ця функція в розробці!", 0));

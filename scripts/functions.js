@@ -4,30 +4,83 @@ function gaps(event) {
     }
 }
 
+function saveElementInSession(evt, closestClass, array, sessionStorageName) {
+    const elementsListItem = evt.target.closest(closestClass);
+    if (elementsListItem) {
+        const elementId = elementsListItem.getAttribute("data-id");
+        const element = array.find((element) => element.id === elementId);
+        sessionStorage.setItem(sessionStorageName, JSON.stringify(element));
+    }
+}
+
+function searchByName(elementsListItem, elementClass) {
+    const search = document.querySelector(".search-input").value.toLowerCase();
+
+    elementsListItem.forEach((element) => {
+        const elementName = element.querySelector(elementClass).textContent.toLowerCase();
+        if (elementName.includes(search)) {
+            element.style.display = "flex";
+        } else {
+            element.style.display = "none";
+        }
+    });
+}
+
+function sortItems(elementsListItem, priceClass, elementsList) {
+    const sortValue = document.querySelector(".sort-list").value;
+    const elementsArray = Array.from(elementsListItem);
+
+    function sortByPrice() {
+        elementsArray.sort(function (a, b) {
+            let priceA = parseInt(a.getElementsByClassName(priceClass)[0].innerText) || 0;
+            let priceB = parseInt(b.getElementsByClassName(priceClass)[0].innerText) || 0;
+            return priceA - priceB;
+        });
+    }
+
+    if (sortValue === "cheap") {
+        sortByPrice();
+    } else if (sortValue === "expensive") {
+        sortByPrice();
+        elementsArray.reverse();
+    }
+
+    elementsList.innerHTML = "";
+    elementsArray.forEach(function (item) {
+        elementsList.appendChild(item);
+    });
+}
+
 // ----------------- modal functions start -----------------
 
 function showMessage(modal, title) {
     document.getElementById("modal-title-message").textContent = title;
-
-    setTimeout(function () {
-        modal.style.display = "flex";
-    }, 0);
-
-    setTimeout(function () {
-        modal.style.display = "none";
-    }, 5000);
+    setTimeout(() => modal.style.display = "flex", 0);
+    setTimeout(() => modal.style.display = "none", 5000);
 }
 
-async function modalManagement(modal, form, closeButton) {
+async function modalClose(modal, closeButton, form) {
     if (closeButton) {
         closeButton.addEventListener("click", function () {
             modal.style.display = "none";
-            form.submit();
+            if (form > "") form.submit();
         });
     }
 }
 
- // ------------------- modal function end -------------------
+async function ModalMessage(title, form) {
+    const messageModal = await waitForElement("#message-modal");
+    const closeModalMessage = await waitForElement("#close-modal-message");
+
+    if (messageModal && closeModalMessage) {
+        showMessage(messageModal, title);
+        modalClose(messageModal, closeModalMessage, form);
+    }
+
+    if (form > "") setTimeout(() => form.submit(), 5000);
+}
+
+// ------------------- modal function end -------------------
 
 async function delay(ms) {
     await new Promise(resolve => setTimeout(resolve, ms));
@@ -46,7 +99,7 @@ async function waitForElement(selector, timeout = 5000) {
     throw new Error(`Element with selector "${selector}" not found within ${timeout}ms`);
 }
 
-async function dataBaseConnection(method, server, myData) { 
+async function dataBaseConnection(method, server, myData) {
     try {
         const response = await fetch(server, {
             method: method,
@@ -67,6 +120,4 @@ async function dataBaseConnection(method, server, myData) {
     }
 }
 
-
-export { gaps, delay, waitForElement, showMessage, modalManagement, dataBaseConnection };
-
+export { gaps, saveElementInSession, searchByName, sortItems, waitForElement, ModalMessage, dataBaseConnection };

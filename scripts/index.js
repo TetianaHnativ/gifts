@@ -1,4 +1,4 @@
-import { waitForElement, showMessage } from "./functions.js";
+import { ModalMessage } from "./functions.js";
 
 function questionnaireLink() {
     window.location.href = "questionnaire.html";
@@ -10,33 +10,18 @@ async function questionnaireLinkGo() {
 
         const user = localStorage.getItem("user");
 
-        // ----------------- modal starts -----------------
-        const messageModal = await waitForElement("#message-modal");
-
-        const messageCloseModal = await waitForElement("#close-modal-message");
-
-        messageCloseModal.addEventListener(
-            "click",
-            () => (messageModal.style.display = "none")
-        );
-        // ------------------- modal ends -------------------
-
-        questionnaireLinkButton.addEventListener("click", () => {
-            if (user) {
-                questionnaireLink();
-            } else {
-                showMessage(messageModal, "Для заповнення анкети авторизуйтеся, будь ласка!");
-            }
-        });
+        if (questionnaireLinkButton) {
+            questionnaireLinkButton.addEventListener("click", () => {
+                if (user) {
+                    questionnaireLink();
+                } else {
+                    ModalMessage("Для заповнення анкети авторизуйтеся, будь ласка!", 0);
+                }
+            });
+        }
     } catch (error) {
         console.error(error.message);
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    questionnaireLinkGo();
-});
-
-
-//localStorage.setItem("user", 1); - перевірка
-//localStorage.removeItem("user"); - перевірка
+document.addEventListener("DOMContentLoaded", () => questionnaireLinkGo());

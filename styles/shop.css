@@ -1,0 +1,219 @@
+html {
+    font-size: 16px;
+    /* Base size, 16 px = 1rem */
+}
+
+main {
+    min-height: 100vh;
+    padding: 1.25rem 0;
+}
+
+.shop-button {
+    font-size: 1.125rem;
+    text-align: center;
+    background-color: #ebed4d;
+    color: #038cff;
+    border-color: #ffbc03;
+    border-radius: 0.625rem;
+    padding: 0.3125rem 0.9375rem;
+    cursor: pointer;
+}
+
+.shop-button:hover,
+.shop-button:focus {
+    background-color: #ffbc03;
+}
+
+.buttons-list {
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    padding-top: 1.25rem;
+}
+
+.sort-search-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.875rem;
+}
+
+.search-input {
+    font-size: 1rem;
+    text-align: center;
+    background-color: #ffbc03;
+    color: #000;
+    padding: 0.3125rem;
+    border-color: #ffbc03;
+    min-width: 18.75rem;
+    margin-right: 0.3125rem;
+}
+
+.search-input::placeholder {
+    color: #000;
+    letter-spacing: 0.0625rem;
+}
+
+.search-button {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.3125rem 0.625rem;
+    background-color: #ffbc03;
+    color: #000;
+    border-color: #ffbc03;
+    cursor: pointer;
+    letter-spacing: 0.0625rem;
+    border-radius: 0.3125rem;
+}
+
+.search-button:focus,
+.search-button:hover {
+    background-color: #038cff;
+    color: #fff;
+    border-color: #038cff;
+}
+
+.sort-list {
+    font-size: 0.875rem;
+    text-align: center;
+    background-color: #ffbc03;
+    color: #000;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.3125rem;
+}
+
+.gifts-list {
+    display: flex;
+    gap: 1.875rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    margin-bottom: 3.125rem;
+}
+
+.gifts-list-item {
+    height: 25rem;
+}
+
+.gifts-list-item a {
+    border: 0.0625rem solid #038cff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.625rem;
+    padding-bottom: 0.5rem;
+    max-width: 17.5rem;
+    border-radius: 0.625rem;
+    height: 25rem;
+}
+
+.gift-img {
+    max-width: 17.5rem;
+    height: 17.5rem;
+    border-radius: 0.625rem;
+}
+
+.gift-information {
+    margin-bottom: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.gift-name {
+    text-align: center;
+    color: #ffbc03;
+    font-size: 1.125rem;
+    text-shadow: -0.0625rem -0.0625rem 0 #053053, 0.0625rem -0.0625rem 0 #053053, -0.0625rem 0.0625rem 0 #053053, 0.0625rem 0.0625rem 0 #053053;
+    letter-spacing: 0.09375rem;
+}
+
+.gift-category {
+    text-align: center;
+    color: #038cff;
+    font-size: 1.125rem;
+}
+
+.gift-price {
+    text-align: center;
+    color: #ffbc03;
+    font-size: 1.125rem;
+}
+
+.basket-link {
+    font-size: 1.875rem;
+}
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .sort-search-container {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-container {
+        gap: 1rem;
+    }
+
+    .search-input {
+        font-size: 1rem;
+        min-width: 9.375rem;
+    }
+
+    .search-button {
+        font-size: 0.875rem;
+        padding: 0.3125rem 0.125rem;
+    }
+
+    .sort-list {
+        font-size: 0.875rem;
+        padding: 0.3125rem 0.125rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .gifts-list-item {
+        max-width: 12.5rem;
+        height: 18.75rem;
+    }
+
+    .gifts-list-item a {
+        height: 18.75rem;
+    }
+
+    .gift-img {
+        max-width: 12.5rem;
+        height: 12.5rem;
+    }
+
+    .gift-name {
+        font-size: 1rem;
+    }
+
+    .gift-category {
+        font-size: 1rem;
+    }
+
+    .gift-price {
+        font-size: 1rem;
+    }
+
+    .shop-button {
+        font-size: 1rem;
+    }
+
+    .sort-list {
+        font-size: 0.75rem;
+    }
+
+    .basket-link {
+        font-size: 1.5625rem;
+    }
+}
