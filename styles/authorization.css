@@ -18,7 +18,7 @@ main {
 
     gap: 1.25rem;
     padding: 3.125rem;
-    margin: 0.625rem 0rem;
+    margin: 0.625rem 0;
     border: 0.3125rem outset #ffbe03;
     border-radius: 0.625rem;
 }

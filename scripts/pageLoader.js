@@ -13,4 +13,11 @@ window.onload = function () {
     loadHTML('message-modal', 'messageModal.html');
 };
 
-export { loadHTML };
+function loadHTMLWithoutHeader() {
+    window.onload = function () {
+        loadHTML('header', 'header.html');
+        loadHTML('message-modal', 'messageModal.html');
+    };
+}
+
+export { loadHTML, loadHTMLWithoutHeader };

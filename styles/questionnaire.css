@@ -1,0 +1,80 @@
+main {
+    background-image: url(../imgs/Ukrainian-flag-img.jpg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.875rem 0;
+}
+
+.questionnaire {
+    background-color: #ffbe03;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.25rem;
+    padding: 1.875rem 1.25rem;
+    border: 0.3125rem outset #ffbe03;
+    border-radius: 0.625rem;
+    margin: 1.25rem 0;
+
+    max-width: 15.625rem;
+}
+
+.questionnaire-main-title {
+    font-size: 1.75rem;
+    text-align: center;
+    color: #053053;
+    margin-bottom: 1.25rem;
+}
+
+.questionnaire-test {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
+    width: 9.375rem;
+}
+
+.questionnaire-secondary-title {
+    font-size: 1.25rem;
+    text-align: center;
+    color: #038cff;
+    text-shadow: -0.0625rem -0.0625rem 0 black, 0.0625rem -0.0625rem 0 black, -0.0625rem 0.0625rem 0 black,
+        0.0625rem 0.0625rem 0 black;
+}
+
+.questionnaire-button {
+    font-size: 1.375rem;
+    text-align: center;
+    background-color: #053053;
+    color: #fff;
+    border-color: #053053;
+    cursor: pointer;
+    margin-top: 0.625rem;
+}
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 425px) {
+    .questionnaire {
+        gap: 1rem;
+        padding: 1.25rem 1rem;
+        max-width: 11.25rem;
+    }
+
+    .questionnaire-main-title {
+        font-size: 1.25rem;
+    }
+
+    .questionnaire-secondary-title {
+        font-size: 1rem;
+    }
+
+    .questionnaire-button {
+        font-size: 1rem;
+    }
+}

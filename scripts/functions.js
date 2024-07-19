@@ -4,6 +4,14 @@ function gaps(event) {
     }
 }
 
+function showCondition(condition, element) {
+    if (condition) {
+        element.style.display = "flex";
+    } else {
+        element.style.display = "none";
+    }
+};
+
 function saveElementInSession(evt, closestClass, array, sessionStorageName) {
     const elementsListItem = evt.target.closest(closestClass);
     if (elementsListItem) {
@@ -18,11 +26,7 @@ function searchByName(elementsListItem, elementClass) {
 
     elementsListItem.forEach((element) => {
         const elementName = element.querySelector(elementClass).textContent.toLowerCase();
-        if (elementName.includes(search)) {
-            element.style.display = "flex";
-        } else {
-            element.style.display = "none";
-        }
+        showCondition(elementName.includes(search), element);
     });
 }
 
@@ -54,18 +58,18 @@ function sortItems(elementsListItem, priceClass, elementsList) {
 // ----------------- modal functions start -----------------
 
 function showMessage(modal, title) {
-    document.getElementById("modal-title-message").textContent = title;
+    const modalTitleMessage = document.getElementById("modal-title-message");
+    if (modalTitleMessage) modalTitleMessage.textContent = title;
     setTimeout(() => modal.style.display = "flex", 0);
     setTimeout(() => modal.style.display = "none", 5000);
 }
 
 async function modalClose(modal, closeButton, form) {
-    if (closeButton) {
+    if (closeButton)
         closeButton.addEventListener("click", function () {
             modal.style.display = "none";
             if (form > "") form.submit();
         });
-    }
 }
 
 async function ModalMessage(title, form) {
@@ -80,7 +84,7 @@ async function ModalMessage(title, form) {
     if (form > "") setTimeout(() => form.submit(), 5000);
 }
 
-// ------------------- modal function end -------------------
+// ------------------- modal functions end -------------------
 
 async function delay(ms) {
     await new Promise(resolve => setTimeout(resolve, ms));
@@ -120,4 +124,4 @@ async function dataBaseConnection(method, server, myData) {
     }
 }
 
-export { gaps, saveElementInSession, searchByName, sortItems, waitForElement, ModalMessage, dataBaseConnection };
+export { gaps, showCondition, saveElementInSession, searchByName, sortItems, waitForElement, ModalMessage, dataBaseConnection };

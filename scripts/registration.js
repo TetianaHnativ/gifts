@@ -1,9 +1,6 @@
-import { loadHTML } from "./pageLoader.js";
+import { loadHTMLWithoutHeader } from "./pageLoader.js";
 
-window.onload = function () {
-    loadHTML('header', 'header.html');
-    loadHTML('message-modal', 'messageModal.html');
-};
+loadHTMLWithoutHeader();
 
 import { gaps, ModalMessage, dataBaseConnection } from "./functions.js";
 

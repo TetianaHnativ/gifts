@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Raleway:wght@700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/wrapper.css" />
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/questionnaire.css" />
+
+    <link rel="stylesheet" href="../styles/modal.css" />
+
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <title>Gifts</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header"></header>
+
+        <main>
+            <form class="questionnaire">
+                <h1 class="questionnaire-main-title">Пройдіть анкету для підбору подарунків</h1>
+                <h2 class="questionnaire-secondary-title">Для кого даруєте?</h2>
+                <ul class="questionnaire-test">
+                    <li>
+                        <input type="radio" name="receiver" value="male" checked />
+                        Чоловік
+                    </li>
+                    <li><input type="radio" name="receiver" value="female" /> Жінка</li>
+                </ul>
+
+                <h2 class="questionnaire-secondary-title">Вік отримувача</h2>
+                <ul class="questionnaire-test">
+                    <li>
+                    <li>
+                        <input type="radio" name="age" value="child" />
+                        до 6-17
+                    </li>
+                    <li>
+                        <input type="radio" name="age" value="adult" checked />
+                        18-65
+                    </li>
+                    <li>
+                        <input type="radio" name="age" value="elderly" />
+                        Від 65
+                    </li>
+                </ul>
+                <h2 class="questionnaire-secondary-title">Привід привітання</h2>
+                <ul class="questionnaire-test">
+                    <li>
+                        <input type="radio" name="occasion" value="christmas" />
+                        Різдво
+                    </li>
+                    <li>
+                        <input type="radio" name="occasion" value="st-valentine-day" />
+                        День святого Валентина
+                    </li>
+                    <li>
+                        <input type="radio" name="occasion" value="st-nicholas-day" />
+                        День святого Миколая
+                    </li>
+                    <li>
+                        <input type="radio" name="occasion" value="other" checked />
+                        Інше
+                    </li>
+                </ul>
+                <h2 class="questionnaire-secondary-title">Інтереси</h2>
+                <ul class="questionnaire-test">
+                    <li>
+                        <input type="radio" name="interests" value="housekeeping" />
+                        Домоводство
+                    </li>
+                    <li>
+                        <input type="radio" name="interests" value="technology" />
+                        Техніка
+                    </li>
+                    <li>
+                        <input type="radio" name="interests" value="office" />
+                        Канцелярія
+                    </li>
+                    <li>
+                        <input type="radio" name="interests" value="blogging" />
+                        Блогінг
+                    </li>
+                    <li>
+                        <input type="radio" name="interests" value="other" checked />
+                        Інше
+                    </li>
+                </ul>
+                <button class="questionnaire-button">
+                    Надіслати
+                </button>
+            </form>
+        </main>
+    </div>
+
+    <script type="module" src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/questionnaire.js"></script>
+</body>
+
+</html>
