@@ -1,4 +1,4 @@
-import { showCondition, saveElementInSession, searchByName, sortItems, dataBaseConnection, ModalMessage } from "./functions.js";
+import { showCondition, saveElementInSession, searchByName, sortItems, dataBaseConnection, ModalManagement } from "./functions.js";
 
 const userInSystem = localStorage.getItem("user") || "";
 
@@ -130,5 +130,5 @@ if (basketLink && basketNumber)
     basketNumber.textContent = await dataBaseConnection("POST", "../phpDataBase/basketNumberDatabase.php", { user: userInSystem });
   } else {
     basketLink.href = "#";
-    basketLink.addEventListener("click", () => ModalMessage("Для переходу в кошик авторизуйтеся, будь ласка!", 0));
+    basketLink.addEventListener("click", () => ModalManagement("Для переходу в кошик авторизуйтеся, будь ласка!", "#message-modal", "#close-modal-message", 0));
   }

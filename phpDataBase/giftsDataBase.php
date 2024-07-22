@@ -12,23 +12,26 @@ if ($conn->connect_error) {
 
 $jsonData = json_decode(file_get_contents('php://input'), true);
 
-$user = $jsonData['user'];
+$gift = $jsonData['gift'] ?? '';
 
-if (empty($user)) {
-    die(json_encode("Empty field"));
+if (empty($gift)) {
+    die(json_encode(["message" => "Empty field"]));
 }
 
-$sql = "SELECT COUNT(*) as total_rows FROM basket WHERE user=?";
+$sql = "SELECT * FROM gifts WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $user);
+if ($stmt === false) {
+    die(json_encode(["message" => "Prepare failed: " . $conn->error]));
+}
+$stmt->bind_param("i", $gift);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result) {
     $row = $result->fetch_assoc();
-    echo json_encode($row['total_rows']);
+    echo json_encode((object) $row, JSON_PRETTY_PRINT);
 } else {
-    echo json_encode("");
+    echo json_encode(["message" => "No result found for the given ID"]);
 }
 
 $stmt->close();

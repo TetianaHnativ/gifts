@@ -12,14 +12,14 @@ if ($conn->connect_error) {
 
 $jsonData = json_decode(file_get_contents('php://input'), true);
 
-$user = mysqli_real_escape_string($conn, $jsonData['user']);
-$receiver = mysqli_real_escape_string($conn, $jsonData['receiver']);
-$age = mysqli_real_escape_string($conn, $jsonData['age']);
-$occasion = mysqli_real_escape_string($conn, $jsonData['occasion']);
-$interests = mysqli_real_escape_string($conn, $jsonData['interests']);
+$user = $jsonData['user'];
+$receiver = $jsonData['receiver'];
+$age = $jsonData['age'];
+$occasion = $jsonData['occasion'];
+$interests = $jsonData['interests'];
 
 if (empty($user) || empty($receiver) || empty($age) || empty($occasion) || empty($interests)) {
-    die("Empty fields");
+    die(json_encode("Empty fields"));
 }
 
 $sql = "INSERT INTO questionnaire (receiver, age, occasion, interests, user)

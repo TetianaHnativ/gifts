@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Raleway:wght@700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/wrapper.css" />
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/gift.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+
+    <link rel="stylesheet" href="../styles/modal.css" />
+
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <title>Gifts</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header"></header>
+
+        <main>
+            <img src="" alt="" class="gift-img" />
+            <div class="gift-information">
+                <h3 class="gift-name"></h3>
+                <p class="gift-category"></p>
+                <p class="gift-price"></p>
+                <p class="gift-availability"></p>
+
+                <p class="gift-additional">
+                    Оплата при доставці, доставка кур'єром за адресою (вказується при
+                    замовленні)
+                </p>
+                <ul class="gift-buttons">
+                    <div class="gift-buy-buttons">
+                        <button class="gift-basket">
+                            Додати в кошик <i class="fas fa-shopping-basket"></i>
+                        </button>
+                        <button class="gift-buy-now">
+                            Купити зараз <i class="fas fa-gift"></i>
+                        </button>
+                    </div>
+                    <button class="gift-selected">
+                        Додати в обрані <i class="fas fa-heart"></i>
+                    </button>
+                </ul>
+            </div>
+        </main>
+
+        <footer id="footer"></footer>
+    </div>
+
+    <div class="modal-container" id="order-modal">
+        <div class="container">
+            <button class="modal-close-button" id="close-modal-order">x</button>
+            <form class="modal-form" id="order-form">
+                <h3 class="modal-title" id="modal-title-order">Оформлення замовлення</h3>
+
+                <label class="modal-label-number">Кількість подарунків:
+                    <input type="number" id="modal-number-input" class="modal-field-number" name="number" min="1"
+                        value="1" required />
+                </label>
+
+                <p class="modal-price-text">
+                    Всього: <span class="modal-price"></span> грн.
+                </p>
+
+                <input type="text" id="modal-address" class="modal-field-input" name="address"
+                    placeholder="Введіть адресу доставки" minlength="10" maxlength="255" required />
+                    
+                <input type="tel" id="modal-phone" class="modal-field-input" name="phone"
+                    placeholder="Введіть номер телефону" minlength="13" maxlength="13" pattern="\+[0-9]{12}"
+                    title="Формат міжнародний (+12 цифр): +XXXXXXXXXXXX" required />
+
+                <ul class="packaging-list">
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="yellow-box-blue-ribbon"
+                            checked />
+                        Жовта коробка <i class="fas fa-box yellow"></i> та блакитна
+                        стрічка
+                        <i class="fas fa-ribbon blue"></i>
+                    </li>
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="blue-box-yellow-ribbon" />
+                        Блакитна коробка <i class="fas fa-box blue"></i> та жовта стрічка
+                        <i class="fas fa-ribbon yellow"></i>
+                    </li>
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="yellow-box-black-ribbon" />
+                        Жовта коробка <i class="fas fa-box yellow"></i> та чорна стрічка
+                        <i class="fas fa-ribbon black"></i>
+                    </li>
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="blue-box-white-ribbon" />
+                        Блакитна коробка <i class="fas fa-box blue"></i> та біла стрічка
+                        <i class="fas fa-ribbon white"></i>
+                    </li>
+                </ul>
+
+                <button class="modal-form-button" id="order-modal-button">Оформити</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="modal-container" id="message-modal"></div>
+
+    <script type="module" src="../scripts/pageLoader.js"></script>
+    <script type="module" src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/gift.js"></script>
+</body>
+
+</html>

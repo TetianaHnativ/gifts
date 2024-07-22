@@ -12,14 +12,14 @@ if ($conn->connect_error) {
 
 $jsonData = json_decode(file_get_contents('php://input'), true);
 
-$surname = mysqli_real_escape_string($conn, $jsonData['surname']);
-$name = mysqli_real_escape_string($conn, $jsonData['username']);
-$phone = mysqli_real_escape_string($conn, $jsonData['phone']);
-$email = mysqli_real_escape_string($conn, $jsonData['email']);
-$password = mysqli_real_escape_string($conn, $jsonData['password']);
+$surname = $jsonData['surname'];
+$name = $jsonData['username'];
+$phone = $jsonData['phone'];
+$email = $jsonData['email'];
+$password = $jsonData['password'];
 
 if (empty($surname) || empty($name) || empty($phone) || empty($email) || empty($password)) {
-    die("Empty fields");
+    die(json_encode("Empty fields"));
 }
 
 $sql_check_email = "SELECT * FROM users WHERE email=?";

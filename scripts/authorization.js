@@ -2,7 +2,7 @@ import { loadHTMLWithoutHeader } from "./pageLoader.js";
 
 loadHTMLWithoutHeader();
 
-import { gaps, ModalMessage, dataBaseConnection } from "./functions.js";
+import { gaps, ModalManagement, dataBaseConnection } from "./functions.js";
 
 const user = localStorage.getItem("user") || "";
 
@@ -20,7 +20,7 @@ if (authorizationForm) {
         event.preventDefault();
 
         if (user) {
-            ModalMessage("Ви вже авторизовані в системі!", authorizationForm);
+            ModalManagement("Ви вже авторизовані в системі!", "#message-modal", "#close-modal-message", authorizationForm);
         } else {
             authentication();
         }
@@ -53,8 +53,8 @@ async function authentication() {
 
         messageAuthorization.textContent = "";
 
-        ModalMessage("Авторизація успішна!", authorizationForm);
+        ModalManagement("Авторизація успішна!", "#message-modal", "#close-modal-message", authorizationForm);
     }
 }
 
-if (passwordLink) passwordLink.addEventListener("click", () => ModalMessage("Ця функція в розробці!", 0));
+if (passwordLink) passwordLink.addEventListener("click", () => ModalManagement("Ця функція в розробці!", "#message-modal", "#close-modal-message", 0));

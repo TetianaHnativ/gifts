@@ -12,11 +12,11 @@ if ($conn->connect_error) {
 
 $jsonData = json_decode(file_get_contents('php://input'), true);
 
-$email = mysqli_real_escape_string($conn, $jsonData['email']);
-$password = mysqli_real_escape_string($conn, $jsonData['password']);
+$email = $jsonData['email'];
+$password = $jsonData['password'];
 
 if (empty($email) || empty($password)) {
-    die("Empty fields");
+    die(json_encode("Empty fields"));
 }
 
 $sql_check_email = "SELECT * FROM users WHERE email=?";

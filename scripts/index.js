@@ -1,4 +1,4 @@
-import { ModalMessage } from "./functions.js";
+import { ModalManagement } from "./functions.js";
 
 function questionnaireLink() {
     window.location.href = "questionnaire.html";
@@ -15,7 +15,7 @@ async function questionnaireLinkGo() {
                 if (user) {
                     questionnaireLink();
                 } else {
-                    ModalMessage("Для заповнення анкети авторизуйтеся, будь ласка!", 0);
+                    ModalManagement("Для заповнення анкети авторизуйтеся, будь ласка!", "#message-modal", "#close-modal-message", 0);
                 }
             });
         }

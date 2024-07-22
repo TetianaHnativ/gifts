@@ -2,7 +2,7 @@ import { loadHTMLWithoutHeader } from "./pageLoader.js";
 
 loadHTMLWithoutHeader();
 
-import { gaps, ModalMessage, dataBaseConnection } from "./functions.js";
+import { gaps, ModalManagement, dataBaseConnection } from "./functions.js";
 
 const surname = document.getElementById("surname");
 const username = document.getElementById("name");
@@ -56,7 +56,7 @@ async function saveUserData() {
     } else if (dataBaseConnectionResult === "Registration successful") {
         message.textContent = "";
 
-        ModalMessage("Реєстрація успішна!", registrationForm);
+        ModalManagement("Реєстрація успішна!", "#message-modal", "#close-modal-message", registrationForm);
 
         setTimeout(() => registrationForm.submit(), 5000);
     }

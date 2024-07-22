@@ -17,7 +17,7 @@ function saveElementInSession(evt, closestClass, array, sessionStorageName) {
     if (elementsListItem) {
         const elementId = elementsListItem.getAttribute("data-id");
         const element = array.find((element) => element.id === elementId);
-        sessionStorage.setItem(sessionStorageName, JSON.stringify(element));
+        sessionStorage.setItem(sessionStorageName, JSON.stringify(element.id));
     }
 }
 
@@ -57,11 +57,12 @@ function sortItems(elementsListItem, priceClass, elementsList) {
 
 // ----------------- modal functions start -----------------
 
-function showMessage(modal, title) {
+function showMessage(modal, title, modalClass) {
     const modalTitleMessage = document.getElementById("modal-title-message");
     if (modalTitleMessage) modalTitleMessage.textContent = title;
+
     setTimeout(() => modal.style.display = "flex", 0);
-    setTimeout(() => modal.style.display = "none", 5000);
+    if (modalClass === "#message-modal") setTimeout(() => modal.style.display = "none", 5000);
 }
 
 async function modalClose(modal, closeButton, form) {
@@ -72,16 +73,50 @@ async function modalClose(modal, closeButton, form) {
         });
 }
 
-async function ModalMessage(title, form) {
-    const messageModal = await waitForElement("#message-modal");
-    const closeModalMessage = await waitForElement("#close-modal-message");
+async function ModalManagement(title, modalClass, closeModalClass, form) {
+    const modal = await waitForElement(modalClass);
+    const closeModal = await waitForElement(closeModalClass);
 
-    if (messageModal && closeModalMessage) {
-        showMessage(messageModal, title);
-        modalClose(messageModal, closeModalMessage, form);
+    if (modal && closeModal) {
+        showMessage(modal, title, modalClass);
+        modalClose(modal, closeModal, form);
     }
 
     if (form > "") setTimeout(() => form.submit(), 5000);
+}
+
+function radioButtonPackaging() {
+    const radioButtons = document.querySelectorAll(".packaging-ragio");
+
+    let selectedRadioButton = "";
+
+    let packaging = "";
+
+    if (radioButtons.length > 0) radioButtons.forEach((radioButton) => {
+        if (radioButton.checked) {
+            selectedRadioButton = radioButton.value;
+        }
+    });
+
+    switch (selectedRadioButton) {
+        case "yellow-box-blue-ribbon":
+            packaging = "Жовта коробка та блакитна стрічка";
+            break;
+        case "blue-box-yellow-ribbon":
+            packaging = "Блакитна коробка та жовта стрічка";
+            break;
+        case "yellow-box-black-ribbon":
+            packaging = "Жовта коробка та чорна стрічка";
+            break;
+        case "blue-box-white-ribbon":
+            packaging = "Блакитна коробка та біла стрічка";
+            break;
+        default:
+            console.log("Жодна радіокнопка не вибрана");
+            break;
+    }
+
+    return packaging;
 }
 
 // ------------------- modal functions end -------------------
@@ -124,4 +159,21 @@ async function dataBaseConnection(method, server, myData) {
     }
 }
 
-export { gaps, showCondition, saveElementInSession, searchByName, sortItems, waitForElement, ModalMessage, dataBaseConnection };
+async function addToList(objectName, objectItemId, user, path, messageItem, messageList) {
+    const myObject = {
+        name: objectName,
+        itemId: objectItemId,
+        user: user,
+    };
+
+    const itemInTable = await dataBaseConnection("POST", path, myObject);
+
+    if (itemInTable === "Item is already exist") {
+        ModalManagement(`${messageItem} вже додано до ${messageList}!`, "#message-modal", "#close-modal-message", 0);
+    } else if (itemInTable === "Item is added") {
+        ModalManagement(`${messageItem} додано до ${messageList}!`, "#message-modal", "#close-modal-message", 0);
+    }
+
+}
+
+export { gaps, showCondition, saveElementInSession, searchByName, sortItems, waitForElement, ModalManagement, radioButtonPackaging, dataBaseConnection, addToList };
