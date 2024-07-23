@@ -1,6 +1,6 @@
 import { showCondition, saveElementInSession, searchByName, sortItems, dataBaseConnection, ModalManagement } from "./functions.js";
 
-const userInSystem = localStorage.getItem("user") || "";
+const user = localStorage.getItem("user") || "";
 
 const giftsList = document.querySelector(".gifts-list");
 
@@ -125,9 +125,9 @@ const basketLink = document.querySelector(".basket-link");
 const basketNumber = document.querySelector(".basket-number");
 
 if (basketLink && basketNumber)
-  if (userInSystem > 0) {
+  if (user > 0) {
     basketLink.href = "./myAccount.html #basket";
-    basketNumber.textContent = await dataBaseConnection("POST", "../phpDataBase/basketNumberDatabase.php", { user: userInSystem });
+    basketNumber.textContent = await dataBaseConnection("POST", "../phpDataBase/basketNumberDatabase.php", { user: user });
   } else {
     basketLink.href = "#";
     basketLink.addEventListener("click", () => ModalManagement("Для переходу в кошик авторизуйтеся, будь ласка!", "#message-modal", "#close-modal-message", 0));

@@ -17,7 +17,7 @@ function saveElementInSession(evt, closestClass, array, sessionStorageName) {
     if (elementsListItem) {
         const elementId = elementsListItem.getAttribute("data-id");
         const element = array.find((element) => element.id === elementId);
-        sessionStorage.setItem(sessionStorageName, JSON.stringify(element.id));
+        sessionStorage.setItem(sessionStorageName, JSON.stringify(element));
     }
 }
 
@@ -176,4 +176,14 @@ async function addToList(objectName, objectItemId, user, path, messageItem, mess
 
 }
 
-export { gaps, showCondition, saveElementInSession, searchByName, sortItems, waitForElement, ModalManagement, radioButtonPackaging, dataBaseConnection, addToList };
+function buttonAddToList(button, objectName, objectItemId, user, path, messageItem, messageList, title) {
+    if (button) button.addEventListener("click", () => {
+        if (user > 0) {
+            addToList(objectName, objectItemId, user, path, messageItem, messageList);
+        } else {
+            ModalManagement(title, "#message-modal", "#close-modal-message", 0);
+        }
+    });
+}
+
+export { gaps, showCondition, saveElementInSession, searchByName, sortItems, waitForElement, ModalManagement, radioButtonPackaging, dataBaseConnection, buttonAddToList };

@@ -25,7 +25,7 @@ if (empty($user) || empty($receiver) || empty($age) || empty($occasion) || empty
 $sql = "INSERT INTO questionnaire (receiver, age, occasion, interests, user)
         VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss", $receiver, $age, $occasion, $interests, $user);
+$stmt->bind_param("ssssi", $receiver, $age, $occasion, $interests, $user);
 
 if ($stmt->execute()) {
     echo json_encode("New record created successfully");

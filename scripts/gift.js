@@ -1,4 +1,4 @@
-import { gaps, ModalManagement, radioButtonPackaging, dataBaseConnection, addToList } from "./functions.js";
+import { gaps, ModalManagement, radioButtonPackaging, dataBaseConnection, buttonAddToList } from "./functions.js";
 
 let gift = {
     id: 0,
@@ -13,7 +13,7 @@ const giftString = sessionStorage.getItem("gift");
 
 const user = parseInt(localStorage.getItem("user")) || 0;
 
-if (giftString) gift = await dataBaseConnection("POST", "../phpDataBase/giftsDataBase.php", {gift: JSON.parse(giftString)});
+if (giftString) gift = await dataBaseConnection("POST", "../phpDataBase/giftsDataBase.php", { gift: JSON.parse(giftString).id });
 
 const giftImg = document.querySelector(".gift-img");
 const giftName = document.querySelector(".gift-name");
@@ -32,23 +32,6 @@ const giftBasket = document.querySelector(".gift-basket");
 const giftSelected = document.querySelector(".gift-selected");
 const giftBuyNow = document.querySelector(".gift-buy-now");
 
-
-giftBasket.addEventListener("click", () => {
-    if (user !== 0) {
-        addToList("gift", gift.id, user, "../phpDataBase/basketDatabase.php", "Подарунок", "кошику");
-    } else {
-        ModalManagement("Авторизуйтеся, будь ласка!", "#message-modal", "#close-modal-message", 0);
-    }
-});
-
-giftSelected.addEventListener("click", () => {
-    if (user !== 0) {
-        addToList("gift", gift.id, user, "../phpDataBase/favouritesDatabase.php", "Подарунок", "списку обраних");
-    } else {
-        ModalManagement("Авторизуйтеся, будь ласка!", "#message-modal", "#close-modal-message", 0);
-    }
-});
-
 if (gift.number > 0) {
     giftAvailability.textContent = "У наявності";
     giftAvailability.style.color = "#038cff";
@@ -60,6 +43,10 @@ if (gift.number > 0) {
     buttonsStyle(giftBuyNow);
 }
 
+buttonAddToList(giftBasket, "gift", gift.id, user, "../phpDataBase/basketDatabase.php", "Подарунок", "кошику", "Для додавання подарунку в кошик, будь ласка, авторизуйтеся!");
+
+buttonAddToList(giftSelected, "gift", gift.id, user, "../phpDataBase/favouritesDatabase.php", "Подарунок", "списку обраних", "Для додавання подарунку в обрані, будь ласка, авторизуйтеся!");
+
 function buttonsStyle(button) {
     button.disabled = true;
     button.style.backgroundColor = "#CCCCCC";
@@ -67,11 +54,13 @@ function buttonsStyle(button) {
     button.style.color = "#000";
 }
 
-const openButton = document.querySelector(".gift-buy-now");
-
-if (openButton) openButton.addEventListener("click", () => {
-    ModalManagement(``, "#order-modal", "#close-modal-order", 0);
-    document.querySelector("#order-form").reset();
+if (giftBuyNow) giftBuyNow.addEventListener("click", () => {
+    if (user > 0) {
+        ModalManagement(``, "#order-modal", "#close-modal-order", 0);
+        document.querySelector("#order-form").reset();
+    } else {
+        ModalManagement("Для замовлення подарунку, будь ласка, авторизуйтеся!", "#message-modal", "#close-modal-message", 0);
+    }
 });
 
 // ------------------------------------------------------------------ Modal ------------------------------------------------------------------
@@ -84,7 +73,7 @@ const priceOne = parseFloat(document.querySelector(".gift-price").textContent);
 const modalPrice = document.querySelector(".modal-price");
 modalPrice.textContent = (numberInput.value * priceOne).toFixed(2);
 
-numberInput.addEventListener("input", () => modalPrice.textContent = ((numberInput.value || 0) * priceOne).toFixed(2));
+if (numberInput) numberInput.addEventListener("input", () => modalPrice.textContent = ((numberInput.value || 0) * priceOne).toFixed(2));
 
 const modalPhone = document.getElementById("modal-phone");
 const modalAddress = document.getElementById("modal-address");
@@ -97,7 +86,7 @@ const packaging = radioButtonPackaging();
 
 const orderForm = document.querySelector("#order-form");
 
-orderForm.addEventListener("submit", async function (event) {
+if (orderForm) orderForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const orderGift = {

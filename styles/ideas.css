@@ -8,33 +8,10 @@ main {
     padding: 1.25rem 0;
 }
 
-.shop-button {
-    font-size: 1.125rem;
-    text-align: center;
-    background-color: #ebed4d;
-    color: #038cff;
-    border-color: #ffbc03;
-    border-radius: 0.625rem;
-    padding: 0.3125rem 0.9375rem;
-    cursor: pointer;
-}
-
-.shop-button:hover,
-.shop-button:focus {
-    background-color: #ffbc03;
-}
-
-.buttons-list {
-    display: flex;
-    justify-content: center;
-    gap: 0.625rem;
-    flex-wrap: wrap;
-    padding-top: 1.25rem;
-}
-
-.sort-search-container {
+.filters-container {
     display: flex;
     justify-content: space-around;
+    text-align: center;
     margin-top: 1.875rem;
 }
 
@@ -59,12 +36,15 @@ main {
     font-weight: 600;
     text-align: center;
     padding: 0.3125rem 0.625rem;
+
     background-color: #ffbc03;
     color: #000;
     border-color: #ffbc03;
     cursor: pointer;
     letter-spacing: 0.0625rem;
     border-radius: 0.3125rem;
+
+    margin-left: 0.3125rem;
 }
 
 .search-button:focus,
@@ -74,6 +54,31 @@ main {
     border-color: #038cff;
 }
 
+.add-button {
+    font-size: 1.25rem;
+    background-color: #038cff;
+    border-color: #053053;
+    color: #ffbc03;
+    letter-spacing: 0.125rem;
+    font-weight: bold;
+
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+    border-radius: 0.625rem;
+}
+
+.add-button:hover,
+.add-button:focus {
+    background-color: #053053;
+}
+
+.sort-list-decorating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25rem;
+}
+
 .sort-list {
     font-size: 0.875rem;
     text-align: center;
@@ -81,10 +86,10 @@ main {
     color: #000;
     border-radius: 0.5rem;
     cursor: pointer;
-    padding: 0.3125rem;
+    padding: 0.5rem 0.3125rem;
 }
 
-.gifts-list {
+.ideas-list {
     display: flex;
     gap: 1.875rem;
     justify-content: center;
@@ -92,7 +97,7 @@ main {
     margin: 2.5rem 0.625rem 3.125rem 0.625rem;
 }
 
-.gifts-list-item a {
+.ideas-list-item a {
     border: 0.0625rem solid #038cff;
     display: flex;
     flex-direction: column;
@@ -100,18 +105,18 @@ main {
     gap: 0.625rem;
 
     padding-bottom: 0.5rem;
-    max-width: 17.5rem;
+    max-width: 18.75rem;
     border-radius: 0.625rem;
     height: 25rem;
 }
 
-.gift-img {
-    max-width: 17.5rem;
-    height: 17.5rem;
+.idea-img {
+    width: 18.75rem;
+    height: 18.75rem;
     border-radius: 0.625rem;
 }
 
-.gift-information {
+.idea-information {
     margin-bottom: 0.625rem;
     display: flex;
     flex-direction: column;
@@ -120,47 +125,74 @@ main {
     gap: 0.625rem;
 }
 
-.gift-name {
+.idea-name {
     text-align: center;
     color: #ffbc03;
     font-size: 1.125rem;
     text-shadow: -0.0625rem -0.0625rem 0 #053053, 0.0625rem -0.0625rem 0 #053053, -0.0625rem 0.0625rem 0 #053053, 0.0625rem 0.0625rem 0 #053053;
-    letter-spacing: 0.09375rem;
+    letter-spacing: 0.125rem;
 }
 
-.gift-category {
+.idea-author {
     text-align: center;
     color: #038cff;
     font-size: 1.125rem;
 }
 
-.gift-price {
+.idea-price {
     text-align: center;
     color: #ffbc03;
     font-size: 1.125rem;
 }
 
-.basket-link {
-    font-size: 1.875rem;
+/* -------------------------------------------------------------------- Modal -------------------------------------------------------------------- */
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-input {
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+.modal-textarea {
+    font-size: 1.125rem;
+}
+
+#submit-button {
+    font-size: 1.25rem;
 }
 
 /* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
 
-@media (max-width: 768px) {
-    .sort-search-container {
+@media (max-width: 1024px) {
+    .filters-container {
         flex-direction: column;
-        gap: 1rem;
+        gap: 3.125rem;
         justify-content: center;
         align-items: center;
     }
 
-    .search-container {
-        gap: 1rem;
+    .sort-list-decorating {
+        width: 15.625rem;
     }
+}
 
+@media (max-width: 768px) {
+    #add-idea-container {
+        min-width: 21.875rem;
+    }
+}
+
+@media (max-width: 425px) {
     .search-input {
-        font-size: 1rem;
-        min-width: 9.375rem;
+        font-size: 0.875rem;
+        min-width: 10rem;
     }
 
     .search-button {
@@ -168,44 +200,58 @@ main {
         padding: 0.3125rem 0.125rem;
     }
 
+    .add-button {
+        font-size: 1.125rem;
+        letter-spacing: 0.0625rem;
+        padding: 0.25rem 0.625rem;
+    }
+
     .sort-list {
         font-size: 0.875rem;
         padding: 0.3125rem 0.125rem;
     }
-}
 
-@media (max-width: 425px) {
-    .gifts-list-item a {
+    .ideas-list-item a {
         max-width: 12.5rem;
         height: 18.75rem;
     }
 
-    .gift-img {
-        max-width: 12.5rem;
+    .idea-img {
+        width: 12.5rem;
         height: 12.5rem;
     }
 
-    .gift-name {
+    .idea-name {
         font-size: 1rem;
     }
 
-    .gift-category {
+    .idea-author {
         font-size: 1rem;
     }
 
-    .gift-price {
+    .idea-price {
         font-size: 1rem;
     }
 
-    .shop-button {
+    /* -------------------------------------------------------------- Modal Adaptive -------------------------------------------------------------- */
+
+    #add-idea-container {
+        min-width: 15.625rem;
+    }
+
+    #add-idea-title {
+        font-size: 1.375rem;
+    }
+
+    .modal-input {
+        font-size: 1.125rem;
+    }
+
+    .modal-textarea {
         font-size: 1rem;
     }
 
-    .sort-list {
-        font-size: 0.75rem;
-    }
-
-    .basket-link {
-        font-size: 1.5625rem;
+    #submit-button {
+        font-size: 1.125rem;
     }
 }

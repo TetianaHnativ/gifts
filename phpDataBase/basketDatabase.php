@@ -21,7 +21,7 @@ if (empty($gift) || empty($user)) {
 
 $idGiftExists = "SELECT id FROM basket WHERE gift_id = ? AND user = ?";
 $stmt = $conn->prepare($idGiftExists);
-$stmt->bind_param("ss", $gift, $user);
+$stmt->bind_param("ii", $gift, $user);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
 } else {
     $sql = "INSERT INTO basket (gift_id, user) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $gift, $user);
+    $stmt->bind_param("ii", $gift, $user);
 
     if ($stmt->execute()) {
         echo json_encode("Item is added");

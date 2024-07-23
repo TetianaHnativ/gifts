@@ -20,7 +20,7 @@ if (empty($user)) {
 
 $sql = "SELECT COUNT(*) as total_rows FROM basket WHERE user=?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $user);
+$stmt->bind_param("i", $user);
 $stmt->execute();
 $result = $stmt->get_result();
 

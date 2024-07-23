@@ -25,7 +25,7 @@ $item_id = ($name === 'gift') ? 'gift_id' : 'idea_id';
 $idItemExists = "SELECT id FROM favourites WHERE $item_id = ? AND user = ?";
 
 $stmt = $conn->prepare($idItemExists);
-$stmt->bind_param("ss", $item, $user);
+$stmt->bind_param("ii", $item, $user);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
     $sql = "INSERT INTO favourites (name, $item_id, user) VALUES (?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $name, $item, $user);
+    $stmt->bind_param("sii", $name, $item, $user);
 
     if ($stmt->execute()) {
         echo json_encode("Item is added");

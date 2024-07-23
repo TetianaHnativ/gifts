@@ -29,7 +29,7 @@ $currentDate = date('Y-m-d');
 
 $idUserExists = "SELECT id FROM users WHERE id = ? ";
 $stmt = stmtPrepare($conn, $idUserExists, "idUserExists");
-$stmt->bind_param("s", $user);
+$stmt->bind_param("i", $user);
 $stmt->execute();
 $result = $stmt->get_result();
 $stmt->close();
@@ -37,7 +37,7 @@ $stmt->close();
 if ($result->num_rows > 0) {
     $newOrder = "INSERT INTO orders (address, phone, price, packaging, date, user) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = stmtPrepare($conn, $newOrder, "newOrder");
-    $stmt->bind_param("ssssss", $address, $phone, $totalPrice, $packaging, $currentDate, $user);
+    $stmt->bind_param("ssdssi", $address, $phone, $totalPrice, $packaging, $currentDate, $user);
 
     if ($stmt->execute()) {
         $last_id = $stmt->insert_id;
