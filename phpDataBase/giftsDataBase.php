@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 
 $jsonData = json_decode(file_get_contents('php://input'), true);
 
-$gift = $jsonData['gift'] ?? '';
+$gift = $jsonData['gift'];
 
 if (empty($gift)) {
     die(json_encode(["message" => "Empty field"]));

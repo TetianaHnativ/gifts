@@ -57,7 +57,7 @@ function buttonsStyle(button) {
 if (giftBuyNow) giftBuyNow.addEventListener("click", () => {
     if (user > 0) {
         ModalManagement(``, "#order-modal", "#close-modal-order", 0);
-        document.querySelector("#order-form").reset();
+        document.getElementById("order-form").reset();
     } else {
         ModalManagement("Для замовлення подарунку, будь ласка, авторизуйтеся!", "#message-modal", "#close-modal-message", 0);
     }
@@ -65,7 +65,7 @@ if (giftBuyNow) giftBuyNow.addEventListener("click", () => {
 
 // ------------------------------------------------------------------ Modal ------------------------------------------------------------------
 
-const numberInput = document.querySelector("#modal-number-input");
+const numberInput = document.getElementById("modal-number-input");
 numberInput.setAttribute('max', gift.number);
 
 const priceOne = parseFloat(document.querySelector(".gift-price").textContent);
@@ -84,7 +84,7 @@ if (modalAddress) modalAddress.addEventListener("blur", () => modalAddress.value
 
 const packaging = radioButtonPackaging();
 
-const orderForm = document.querySelector("#order-form");
+const orderForm = document.getElementById("order-form");
 
 if (orderForm) orderForm.addEventListener("submit", async function (event) {
     event.preventDefault();

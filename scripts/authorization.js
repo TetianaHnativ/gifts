@@ -8,7 +8,6 @@ const user = localStorage.getItem("user") || "";
 
 const messageAuthorization = document.getElementById("message-authorization");
 const authorizationForm = document.querySelector(".authorization");
-const passwordLink = document.querySelector(".password-link");
 
 const loginEmail = document.getElementById("login-email");
 const password = document.getElementById("password");
@@ -56,5 +55,3 @@ async function authentication() {
         ModalManagement("Авторизація успішна!", "#message-modal", "#close-modal-message", authorizationForm);
     }
 }
-
-if (passwordLink) passwordLink.addEventListener("click", () => ModalManagement("Ця функція в розробці!", "#message-modal", "#close-modal-message", 0));

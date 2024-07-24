@@ -63,25 +63,25 @@ main {
 @media (max-width: 425px) {
     .registration {
         gap: 1.25rem;
-        padding: 0.625rem;
+        padding: 1rem 0.3125rem;
     }
 
     .registration-title {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .registration-parameter {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         text-align: center;
         padding: 0.3125rem;
     }
 
     .registration-button {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
     .authorization-question {
-        font-size: 0.75rem;
+        font-size: 0.8125rem;
         align-items: center;
     }
 

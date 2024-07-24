@@ -26,6 +26,7 @@ main {
 .authorization-title {
     font-size: 1.875rem;
     color: #053053;
+    margin-bottom: 1rem;
 }
 
 .authorization-parameter {
@@ -93,6 +94,7 @@ main {
 .modal-field-input {
     text-align: center;
     font-size: 1.5625rem;
+    padding: 0.3125rem;
 }
 
 .modal-form-button {
@@ -151,31 +153,31 @@ main {
 
 @media (max-width: 425px) {
     .authorization {
-        gap: 0.75rem;
-        padding: 0.625rem;
+        gap: 1rem;
+        padding: 1rem 0.625rem;
     }
 
     .authorization-title {
-        font-size: 1rem;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
     }
 
     .authorization-parameter {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         text-align: center;
-        padding: 0.3125rem;
     }
 
     .authorization-button {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
     .registration-question {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         align-items: center;
     }
 
     .password-link {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         margin-bottom: 0.625rem;
         padding: 0.3125rem;
     }
@@ -195,6 +197,11 @@ main {
     }
 
     .modal-form-button {
+        font-size: 0.75rem;
+    }
+
+    #button-modal-save {
         font-size: 1rem;
+        padding: 0.3125rem;
     }
 }

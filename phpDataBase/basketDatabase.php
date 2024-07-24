@@ -12,8 +12,8 @@ if ($conn->connect_error) {
 
 $jsonData = json_decode(file_get_contents('php://input'), true);
 
-$gift = mysqli_real_escape_string($conn, $jsonData['itemId']);
-$user = mysqli_real_escape_string($conn, $jsonData['user']);
+$gift = $jsonData['itemId'];
+$user = $jsonData['user'];
 
 if (empty($gift) || empty($user)) {
     die(json_encode("Empty fields"));

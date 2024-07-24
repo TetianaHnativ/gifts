@@ -105,7 +105,7 @@ if (ideaForm) ideaForm.addEventListener("submit", async function (e) {
     const addIdeaDataBaseResult = await dataBaseConnection("POST", "../phpDataBase/IdeaDataBase.php", newIdea);
 
     if (addIdeaDataBaseResult === "Request is successful") {
-        ideaForm.style.display = "none";
+        document.getElementById("add-idea-modal").style.display = "none";
         ModalManagement("Вашу ідею додано!", "#message-modal", "#close-modal-message", ideaForm);
     } else {
         console.log(addIdeaDataBaseResult);
