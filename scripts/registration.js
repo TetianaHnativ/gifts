@@ -2,7 +2,9 @@ import { loadHTMLWithoutHeader } from "./pageLoader.js";
 
 loadHTMLWithoutHeader();
 
-import { gaps, ModalManagement, dataBaseConnection } from "./functions.js";
+import { gaps, dataBaseConnection } from "./functions.js";
+
+import { ModalManagement } from "./modal.js";
 
 const surname = document.getElementById("surname");
 const username = document.getElementById("name");
@@ -53,7 +55,7 @@ async function saveUserData() {
     if (dataBaseConnectionResult === "Email is already registered") {
         message.textContent = "Користувач з такою поштою вже зареєстрований у системі";
 
-    } else if (dataBaseConnectionResult === "Registration successful") {
+    } else if (dataBaseConnectionResult === "Registration is successful") {
         message.textContent = "";
 
         ModalManagement("Реєстрація успішна!", "#message-modal", "#close-modal-message", registrationForm);

@@ -1,0 +1,110 @@
+header {
+    background-color: #ffbe03;
+    color: #038cff;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 18.75rem;
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.fa-user-circle {
+    font-size: 5.3125rem;
+    color: #038cff;
+}
+
+.user-title {
+    font-size: 1.5625rem;
+    color: #053053;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5vh;
+}
+
+.nav-links-item {
+    background-color: #038cff;
+    border-radius: 1rem;
+    padding: 0.625rem 0.3125rem;
+}
+
+.nav-links {
+    color: #ffbe03;
+    font-size: 1.25rem;
+}
+
+.nav-links:hover,
+.nav-links:focus {
+    color: #fff;
+}
+
+#menu {
+    background-color: #ffbe03;
+    color: #053053;
+    font-size: 1.875rem;
+    padding: 0.3125rem 0.5rem;
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+}
+
+.log-out {
+    background-color: rgb(201, 76, 76);
+    border-color: rgb(173, 50, 50);
+    color: #fff;
+    font-size: 1.5625rem;
+    padding: 0.3125rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.log-out:focus,
+.log-out:hover {
+    background-color: rgb(173, 50, 50);
+}
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+    header {
+        left: -120%;
+    }
+
+    header.toggle {
+        left: 0%
+    }
+
+    #menu {
+        display: block;
+    }
+}
+
+@media (max-width: 425px) {
+    header {
+        width: 100%;
+    }
+
+    .log-out {
+        padding: 0.125rem 0.3125rem;
+    }
+}

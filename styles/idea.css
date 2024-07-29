@@ -96,7 +96,7 @@ main {
 @media (max-width: 1024px) {
     main {
         flex-direction: column;
-        padding: 3.125rem 0px;
+        padding: 3.125rem 0;
     }
 
     .idea-information {
@@ -106,7 +106,7 @@ main {
     .idea-img {
         width: 21.875rem;
         height: 21.875rem;
-        margin-left: 0px;
+        margin-left: 0;
     }
 }
 

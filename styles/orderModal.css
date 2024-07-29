@@ -1,0 +1,92 @@
+.modal-label-number {
+    font-size: 1.25rem;
+    color: #038cff;
+    text-align: center;
+}
+
+.modal-field-number {
+    font-size: 0.9375rem;
+    max-width: 3.125rem;
+}
+
+.modal-price-text {
+    font-size: 1.25rem;
+    text-align: center;
+    color: #053053;
+}
+
+.modal-price {
+    font-size: 1.375rem;
+    text-align: center;
+    color: #ffbc03;
+    text-shadow: -0.0625rem -0.0625rem 0 #000, 0.0625rem -0.0625rem 0 #000, -0.0625rem 0.0625rem 0 #000,
+        0.0625rem 0.0625rem 0 #000;
+}
+
+.modal-field-input {
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 0.3125rem;
+}
+
+.packaging-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.packaging-item {
+    font-size: 1.25rem;
+}
+
+.blue,
+.white,
+.black,
+.yellow {
+    padding: 0.25rem;
+}
+
+.blue {
+    color: #038cff;
+}
+
+.white {
+    color: #fff;
+    background-color: #000;
+}
+
+.black {
+    color: #000;
+}
+
+.yellow {
+    color: #ffbc03;
+    background-color: #fff;
+}
+
+.save-button {
+    font-size: 1.125rem;
+    text-align: center;
+    background-color: #038cff;
+    border-color: #053053;
+    color: #ffbc03;
+    letter-spacing: 0.125rem;
+    font-weight: bold;
+
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 0.625rem;
+}
+
+.save-button:hover,
+.save-button:focus {
+    background-color: #053053;
+}
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 425px) {
+    .save-button {
+        font-size: 1rem;
+    }
+}

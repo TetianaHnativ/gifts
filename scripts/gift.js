@@ -1,8 +1,10 @@
-import { gaps, ModalManagement, radioButtonPackaging, dataBaseConnection, buttonAddToList } from "./functions.js";
+import { gaps, removeSpaces, dataBaseConnection, buttonAddToList } from "./functions.js";
+
+import { ModalManagement, orderGiftsSubmit } from "./modal.js";
 
 let gift = {
     id: 0,
-    img: "../imgs/gift-img.jpg",
+    img: "./imgs/gift-img.jpg",
     name: "Not Found",
     category: "Not Found",
     price: 0,
@@ -13,7 +15,7 @@ const giftString = sessionStorage.getItem("gift");
 
 const user = parseInt(localStorage.getItem("user")) || 0;
 
-if (giftString) gift = await dataBaseConnection("POST", "../phpDataBase/giftsDataBase.php", { gift: JSON.parse(giftString).id });
+if (giftString && giftString !== "undefined") gift = await dataBaseConnection("POST", "../phpDataBase/giftDataBase.php", { gift: JSON.parse(giftString).id });
 
 const giftImg = document.querySelector(".gift-img");
 const giftName = document.querySelector(".gift-name");
@@ -43,9 +45,27 @@ if (gift.number > 0) {
     buttonsStyle(giftBuyNow);
 }
 
-buttonAddToList(giftBasket, "gift", gift.id, user, "../phpDataBase/basketDatabase.php", "Подарунок", "кошику", "Для додавання подарунку в кошик, будь ласка, авторизуйтеся!");
+buttonAddToList({
+    button: giftBasket,
+    objectName: "gift",
+    objectItemId: gift.id,
+    user: user,
+    path: "../phpDataBase/basketDatabase.php",
+    messageItem: "Подарунок",
+    messageList: "кошику",
+    title: "Для додавання подарунку в кошик, будь ласка, авторизуйтеся!"
+});
 
-buttonAddToList(giftSelected, "gift", gift.id, user, "../phpDataBase/favouritesDatabase.php", "Подарунок", "списку обраних", "Для додавання подарунку в обрані, будь ласка, авторизуйтеся!");
+buttonAddToList({
+    button: giftSelected,
+    objectName: "gift",
+    objectItemId: gift.id,
+    user: user,
+    path: "../phpDataBase/favouritesDatabase.php",
+    messageItem: "Подарунок",
+    messageList: "списку обраних",
+    title: "Для додавання подарунку в обрані, будь ласка, авторизуйтеся!"
+});
 
 function buttonsStyle(button) {
     button.disabled = true;
@@ -80,28 +100,23 @@ const modalAddress = document.getElementById("modal-address");
 
 if (modalPhone) modalPhone.addEventListener("input", gaps);
 
-if (modalAddress) modalAddress.addEventListener("blur", () => modalAddress.value = modalAddress.value.trim().replace(/\s+/g, " "));
-
-const packaging = radioButtonPackaging();
+if (modalAddress) modalAddress.addEventListener("blur", removeSpaces);
 
 const orderForm = document.getElementById("order-form");
 
-if (orderForm) orderForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
+if (orderForm) orderForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    const orderGift = {
-        gifts: JSON.stringify([{ id: gift.id, number: numberInput.value, price: modalPrice.textContent }]),
-        price: modalPrice.textContent,
-        address: modalAddress.value,
-        phone: modalPhone.value,
-        packaging: packaging,
-        user: user,
-    }
+    const gifts = [{ id: gift.id, number: numberInput.value, price: modalPrice.textContent }];
 
-    const orderDataBaseResult = await dataBaseConnection("POST", "../phpDataBase/orderDataBase.php", orderGift);
-
-    if (orderDataBaseResult === "Order is successful") {
-        orderForm.style.display = "none";
-        ModalManagement("Подарунок замовлено!", "#message-modal", "#close-modal-message", orderForm);
-    }
+    orderGiftsSubmit({
+        gifts: gifts,
+        modalPrice: modalPrice,
+        modalAddress: modalAddress,
+        modalPhone: modalPhone,
+        orderForm: orderForm,
+        userID: user,
+        place: "",
+        formID: orderForm,
+    });
 });

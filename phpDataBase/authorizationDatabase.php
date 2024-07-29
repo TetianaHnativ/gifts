@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
         echo json_encode("Blocking");
     } else if (hash('sha256', $password) === $row["password"]) {
         $user_id = $row['id'];
-        echo json_encode("Login successful,$user_id");
+        echo json_encode("Login is successful,$user_id");
     } else {
         echo json_encode("Wrong");
     }

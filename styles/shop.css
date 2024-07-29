@@ -92,7 +92,7 @@ main {
     margin: 2.5rem 0.625rem 3.125rem 0.625rem;
 }
 
-.gifts-list-item a {
+.gift-list-item a {
     border: 0.0625rem solid #038cff;
     display: flex;
     flex-direction: column;
@@ -175,7 +175,7 @@ main {
 }
 
 @media (max-width: 425px) {
-    .gifts-list-item a {
+    .gift-list-item a {
         max-width: 12.5rem;
         height: 18.75rem;
     }

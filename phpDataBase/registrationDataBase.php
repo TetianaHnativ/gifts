@@ -39,7 +39,7 @@ if ($result_check_email->num_rows > 0) {
     $stmt->bind_param("sssss", $surname, $name, $phone, $email, $hashed_password);
 
     if ($stmt->execute()) {
-        echo json_encode("Registration successful");
+        echo json_encode("Registration is successful");
     } else {
         echo json_encode("Error: " . $stmt->error);
     }

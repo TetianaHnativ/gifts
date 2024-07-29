@@ -128,85 +128,6 @@ main {
     gap: 1.875rem;
 }
 
-.modal-label-number {
-    font-size: 1.25rem;
-    color: #038cff;
-    text-align: center;
-}
-
-.modal-field-number {
-    font-size: 0.9375rem;
-    padding: 0.125rem;
-    max-width: 3.125rem;
-}
-
-.modal-price-text {
-    font-size: 1.25rem;
-    color: #053053;
-    text-align: center;
-}
-
-.modal-price {
-    text-align: center;
-    color: #ffbc03;
-    font-size: 1.5625rem;
-    text-shadow: -0.0625rem -0.0625rem 0 #053053, 0.0625rem -0.0625rem 0 #053053, -0.0625rem 0.0625rem 0 #053053, 0.0625rem 0.0625rem 0 #053053;
-}
-
-.modal-field-input {
-    text-align: center;
-    font-size: 1.25rem;
-    padding: 0.3125rem;
-}
-
-.packaging-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-}
-
-.packaging-item {
-    font-size: 1.25rem;
-}
-
-.blue {
-    color: #038cff;
-    padding: 0.25rem;
-}
-
-.white {
-    color: #fff;
-    padding: 0.25rem;
-    background-color: #000;
-}
-
-.black {
-    color: #000;
-    padding: 0.25rem;
-}
-
-.yellow {
-    color: #ffbc03;
-    padding: 0.25rem;
-    background-color: #fff;
-}
-
-.modal-form-button {
-    text-align: center;
-    background-color: #038cff;
-    border-color: #053053;
-    color: #ffbc03;
-    font-size: 1.125rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    border-radius: 0.625rem;
-}
-
-.modal-form-button:focus,
-.modal-form-button:hover {
-    background-color: #053053;
-}
-
 /* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
 
 @media (max-width: 1024px) {
@@ -252,13 +173,13 @@ main {
     main {
         flex-direction: column;
         gap: 1.25rem;
-        padding: 3.125rem 0px;
+        padding: 3.125rem 0;
     }
 
     .gift-img {
         width: 18.75rem;
         height: 18.75rem;
-        margin-left: 0px;
+        margin-left: 0;
     }
 
     .gift-buttons {
@@ -323,18 +244,13 @@ main {
     .packaging-item {
         font-size: 1.125rem;
     }
-
-    .modal-form-button {
-        font-size: 1.125rem;
-        padding: 0.3125rem;
-    }
 }
 
 @media (max-width: 425px) {
     .gift-img {
         width: 12.5rem;
         height: 12.5rem;
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     .gift-name {
@@ -368,10 +284,6 @@ main {
     }
 
     .packaging-item {
-        font-size: 1rem;
-    }
-
-    .modal-form-button {
         font-size: 1rem;
     }
 }

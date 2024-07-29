@@ -2,7 +2,7 @@ import { buttonAddToList } from "./functions.js";
 
 let idea = {
     id: 0,
-    img: "./imgs/idea-img.jpg",
+    img: "../imgs/idea-img.jpg",
     name: "Not Found",
     author: "Not Found",
     price: 0,
@@ -14,7 +14,7 @@ const user = parseInt(localStorage.getItem("user")) || 0;
 
 const ideaString = sessionStorage.getItem('idea');
 
-if (ideaString) idea = JSON.parse(ideaString);
+if (ideaString && ideaString !== "undefined") idea = JSON.parse(ideaString);
 
 const ideaImg = document.querySelector(".idea-img");
 const ideaName = document.querySelector('.idea-name');
@@ -42,4 +42,13 @@ if (description) description.forEach(element => {
 
 const ideaSelectedButton = document.querySelector(".idea-selected-button");
 
-buttonAddToList(ideaSelectedButton, "idea", idea.id, user, "../phpDataBase/favouritesDatabase.php", "Idea", "списку обраних", "Для додавання ідеї в обрані, будь ласка, авторизуйтеся!");
+buttonAddToList({
+    button: ideaSelectedButton,
+    objectName: "idea",
+    objectItemId: idea.id,
+    user: user,
+    path: "../phpDataBase/favouritesDatabase.php",
+    messageItem: "Idea",
+    messageList: "списку обраних",
+    title: "Для додавання ідеї в обрані, будь ласка, авторизуйтеся!"
+});

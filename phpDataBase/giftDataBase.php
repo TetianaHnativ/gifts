@@ -27,7 +27,7 @@ $stmt->bind_param("i", $gift);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result) {
+if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     echo json_encode((object) $row, JSON_PRETTY_PRINT);
 } else {

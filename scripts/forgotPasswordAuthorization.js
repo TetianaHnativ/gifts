@@ -1,4 +1,6 @@
-import { gaps, ModalManagement, dataBaseConnection } from "./functions.js";
+import { gaps, dataBaseConnection } from "./functions.js";
+
+import { ModalManagement } from "./modal.js";
 
 const passwordLink = document.querySelector(".password-link");
 
@@ -59,12 +61,10 @@ async function fetchFunction(myFunction) {
 function sendEmail(data) {
     if (data === "Email is wrong") {
         messageModalPassword.textContent = "Електронна пошта неправильна!";
-
-        modalNumberDisabled(true);
-        modalPasswordDisabled(true);
+        isElementDisabled(true, modalNumberConfirmation, buttonModalConfirmation, modalPassword, modalPasswordConfirmation, buttonModalSave);
     } else if (data === "Random number sent to email") {
         messageModalPassword.textContent = "";
-        modalNumberDisabled(false);
+        isElementDisabled(false, modalNumberConfirmation, buttonModalConfirmation);
     } else {
         messageModalPassword.textContent = "Помилка відправлення листа!";
     }
@@ -73,10 +73,10 @@ function sendEmail(data) {
 function numberChecking(data) {
     if (data === "Only email is right") {
         messageModalPassword.textContent = "Неправильне число!";
-        modalPasswordDisabled(true);
+        isElementDisabled(true, modalPassword, modalPasswordConfirmation, buttonModalSave);
     } else if (data === "Random number request is successful") {
         messageModalPassword.textContent = "";
-        modalPasswordDisabled(false);
+        isElementDisabled(false, modalPassword, modalPasswordConfirmation, buttonModalSave);
     }
 }
 
@@ -90,18 +90,9 @@ function passwordChecking(data) {
     }
 }
 
-function modalNumberDisabled(value) {
-    isElementDisabled(modalNumberConfirmation, value);
-    isElementDisabled(buttonModalConfirmation, value);
-}
-
-function modalPasswordDisabled(value) {
-    isElementDisabled(modalPassword, value);
-    isElementDisabled(modalPasswordConfirmation, value);
-    isElementDisabled(buttonModalSave, value);
-}
-
-function isElementDisabled(element, value) {
-    element.disabled = value;
-    if (value === true && element.tagName.toLowerCase() !== 'button') element.value = "";
+function isElementDisabled(value, ...elements) {
+    elements.forEach(element => {
+        element.disabled = value;
+        if (value === true && element.tagName.toLowerCase() !== 'button') element.value = "";
+    });
 }

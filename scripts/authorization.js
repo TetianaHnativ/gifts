@@ -2,7 +2,9 @@ import { loadHTMLWithoutHeader } from "./pageLoader.js";
 
 loadHTMLWithoutHeader();
 
-import { gaps, ModalManagement, dataBaseConnection } from "./functions.js";
+import { gaps, dataBaseConnection } from "./functions.js";
+
+import { ModalManagement } from "./modal.js";
 
 const user = localStorage.getItem("user") || "";
 
@@ -47,7 +49,7 @@ async function authentication() {
     } else if (dataBaseConnectionResult === "Wrong") {
         messageAuthorization.textContent = "Логін або пароль неправильні!";
 
-    } else if (dataBaseConnectionResult.split(",")[0] === "Login successful") {
+    } else if (dataBaseConnectionResult.split(",")[0] === "Login is successful") {
         localStorage.setItem("user", dataBaseConnectionResult.split(",")[1]);
 
         messageAuthorization.textContent = "";

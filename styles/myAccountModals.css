@@ -1,0 +1,224 @@
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.modal-title {
+    max-width: 25rem;
+}
+
+#delete-modal,
+#basket-modal,
+#edit-idea-modal,
+#message-modal {
+    z-index: 200;
+}
+
+.container {
+    padding: 1.25rem 0.625rem;
+    margin: 0.3125rem 0.9375rem;
+}
+
+/* ---------------------------------------- Modal delete ---------------------------------------- */
+
+#delete-modal {
+    display: none;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1.875rem;
+}
+
+.modal-button {
+    color: #fff;
+    font-size: 1.5625rem;
+    padding: 0.3125rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#delete-item-button {
+    background-color: red;
+    border-color: rgb(173, 50, 50);
+}
+
+#cancel-item-button {
+    background-color: #038cff;
+    border-color: #053053;
+}
+
+#delete-item-button:focus,
+#delete-item-button:hover {
+    background-color: rgb(173, 50, 50);
+}
+
+#cancel-item-button:focus,
+#cancel-item-button:hover {
+    background-color: #053053;
+}
+
+/* -------------------------------------- Modal edit idea -------------------------------------- */
+
+#edit-idea-modal {
+    display: none;
+}
+
+.custom-button-label {
+    cursor: pointer;
+}
+
+.modal-input {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.modal-textarea {
+    font-size: 1.125rem;
+}
+
+/* ------------------------------------- Modal order gifts ------------------------------------- */
+
+#basket-modal {
+    display: none;
+}
+
+#modal-basket-container {
+    max-height: 31.25rem;
+    overflow-y: scroll;
+    max-width: 21.875rem;
+}
+
+#basket-close-button {
+    font-size: 1.125rem;
+    color: #fff;
+    background-color: #038cff;
+    border-color: #038cff;
+}
+
+#basket-title {
+    font-size: 1.875rem;
+}
+
+#order-form {
+    gap: 2.1875rem;
+}
+
+.basket-modal-list {
+    display: flex;
+    gap: 1.875rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.basket-modal-item {
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+    border: 0.125rem solid #038cff;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+
+    width: 12.5rem;
+}
+
+.order-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.order-gift-name {
+    text-align: center;
+    color: #053053;
+    font-size: 1.375rem;
+    letter-spacing: 0.1875rem;
+    max-width: 12.5rem;
+}
+
+.modal-price-text {
+    font-size: 1.25rem;
+    color: #053053;
+    text-align: center;
+}
+
+
+.all-price-text {
+    font-size: 1.375rem;
+    color: #038cff;
+    font-weight: bold;
+}
+
+.all-price {
+    font-size: 1.5625rem;
+}
+
+/* --------------------------------------------------------------------- Adaptive ---------------------------------------------------------------- */
+
+@media (max-width: 425px) {
+
+    .modal-title {
+        max-width: 15.625rem;
+    }
+
+    /* ---------------------------------------- Modal delete Adaptive ---------------------------------------- */
+
+    .modal-button {
+        font-size: 1.125rem;
+        padding: 0.125rem 0.3125rem;
+    }
+
+    /* -------------------------------------- Modal edit idea Adaptive -------------------------------------- */
+
+    #edit-idea-container {
+        padding: 1.25rem;
+        margin: 0.625rem;
+    }
+
+    .modal-input {
+        font-size: 1.125rem;
+    }
+
+    .modal-textarea {
+        font-size: 1rem;
+    }
+
+    /* ------------------------------------- Modal order gifts Adaptive ------------------------------------- */
+
+    #basket-close-button {
+        font-size: 1rem;
+    }
+
+    #basket-title {
+        font-size: 1.5625rem;
+    }
+
+    .order-gift-name {
+        font-size: 1.25rem;
+    }
+
+    .modal-field-input {
+        font-size: 1.25rem;
+    }
+
+    .all-price-text {
+        font-size: 1.25rem;
+    }
+
+    .all-price-text {
+        font-size: 1.375rem;
+    }
+
+    .packaging-item {
+        font-size: 1.25rem;
+    }
+}

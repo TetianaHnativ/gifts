@@ -1,6 +1,6 @@
-import { gaps, saveElementInSession, searchByName, sortItems, dataBaseConnection, ModalManagement } from "./functions.js";
+import { removeSpaces, saveElementInSession, searchByName, sortItems, dataBaseConnection } from "./functions.js";
 
-const removeSpaces = (event) => event.target.value = event.target.value.trim().replace(/\s+/g, " ");
+import { ModalManagement, processingIdeaElements, handleIdeaForm } from "./modal.js";
 
 const user = localStorage.getItem("user") || "";
 
@@ -11,7 +11,7 @@ const ideas = await dataBaseConnection("GET", "../phpDatabase/allIdeaDataBase.ph
 if (ideas.length > 0) {
     ideas.forEach((element) => {
         const li = document.createElement("li");
-        li.classList.add("ideas-list-item");
+        li.classList.add("idea-list-item");
         li.setAttribute("data-id", element.id);
         li.innerHTML = `<a href="./idea.html"
                     ><img
@@ -29,9 +29,9 @@ if (ideas.length > 0) {
     });
 }
 
-const ideasListItem = document.querySelectorAll(".ideas-list-item");
+const ideasListItem = document.querySelectorAll(".idea-list-item");
 
-if (ideasList) ideasList.addEventListener("click", (evt) => saveElementInSession(evt, ".ideas-list-item", ideas, "idea"));
+if (ideasList) ideasList.addEventListener("click", (evt) => saveElementInSession(evt, ".idea-list-item", ideas, "idea"));
 
 //------------------------------------------------------------ Search by name ------------------------------------------------------------
 
@@ -66,48 +66,29 @@ if (addIdeaButton) addIdeaButton.addEventListener("click", () => {
 
 const modalImageUrl = document.getElementById("modal-imageUrl");
 const modalName = document.getElementById("modal-name");
-const modalPrice = document.getElementById("modal-price");
-const modalPhone = document.getElementById("modal-phone");
+const modalIdeaPrice = document.getElementById("modal-price");
+const modalPhoneIdea = document.getElementById("modal-phone-idea");
 const modalDescription = document.getElementById("modal-description");
 
-if (modalImageUrl) modalImageUrl.addEventListener("input", gaps);
-if (modalName) modalName.addEventListener("blur", removeSpaces);
-if (modalPrice) modalPrice.addEventListener("input", gaps);
-if (modalPhone) modalPhone.addEventListener("input", gaps);
-if (modalDescription) modalDescription.addEventListener("blur", removeSpaces);
-
-let newIdea = {
-    img: "../imgs/idea-img.jpg",
-    name: "",
-    price: 0,
-    phone: "",
-    description: "",
-    author: user,
-};
-
-if (modalPrice) modalPrice.addEventListener("input", () => modalPhone.required = parseFloat(modalPrice.value) > 0 ? true : false);
+processingIdeaElements({
+    modalImageUrl: modalImageUrl,
+    modalName: modalName,
+    modalIdeaPrice: modalIdeaPrice,
+    modalPhoneIdea: modalPhoneIdea,
+    modalDescription: modalDescription,
+});
 
 const ideaForm = document.getElementById("idea-form");
 
-if (ideaForm) ideaForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    newIdea = {
-        img: modalImageUrl.value > "" ? modalImageUrl.value : "../imgs/idea-img.jpg",
-        name: modalName.value,
-        author: user,
-        price: parseFloat(modalPrice.value) || 0,
-        phone: modalPhone.value || "-",
-        description: modalDescription.value,
-        id: ""
-    };
-
-    const addIdeaDataBaseResult = await dataBaseConnection("POST", "../phpDataBase/IdeaDataBase.php", newIdea);
-
-    if (addIdeaDataBaseResult === "Request is successful") {
-        document.getElementById("add-idea-modal").style.display = "none";
-        ModalManagement("Вашу ідею додано!", "#message-modal", "#close-modal-message", ideaForm);
-    } else {
-        console.log(addIdeaDataBaseResult);
-    }
-});
+if (ideaForm) ideaForm.addEventListener("submit", handleIdeaForm({
+    modalImageUrl: modalImageUrl,
+    modalName: modalName,
+    modalIdeaPrice: modalIdeaPrice,
+    modalPhoneIdea: modalPhoneIdea,
+    modalDescription: modalDescription,
+    ideaForm: ideaForm,
+    ideaID: "",
+    ideaUser: user,
+    formID: "add-idea-modal",
+    messageAction: "додано",
+}));

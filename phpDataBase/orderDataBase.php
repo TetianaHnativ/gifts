@@ -19,6 +19,9 @@ $packaging = $jsonData['packaging'];
 $user = $jsonData['user'];
 $gifts = json_decode($jsonData['gifts'], true);
 
+$place = $jsonData['place'] ?? "";
+
+
 if (empty($address) || empty($phone) || empty($totalPrice) || empty($packaging) || empty($user) || empty($gifts)) {
     die(json_encode("Empty fields"));
 }
@@ -57,6 +60,14 @@ if ($result->num_rows > 0) {
             $stmt->bind_param("ii", $number, $gift);
             stmtExecute($stmt, "updateNumber");
         }
+
+        if ($place === "basket") {
+            $clearBasket = "DELETE FROM basket WHERE user = ?";
+            $stmt = stmtPrepare($conn, $clearBasket, "clearBasket");
+            $stmt->bind_param("i", $user);
+            stmtExecute($stmt, "clearBasket");
+        }
+
         echo json_encode("Order is successful");
     } else {
         echo json_encode("Error inserting new order: " . $stmt->error);

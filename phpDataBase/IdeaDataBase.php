@@ -15,19 +15,20 @@ $jsonData = json_decode(file_get_contents('php://input'), true);
 $img = $jsonData['img'];
 $name = $jsonData['name'];
 $price = $jsonData['price'];
-$phone = $jsonData['phone'] || "-";
+$phone = $jsonData['phone'] ?? "-";
 $description = $jsonData['description'];
 $author = $jsonData['author'];
 
-$id = $jsonData['id'] || "";
+$id = $jsonData['id'] ?? "";
 
-if (empty($img) || empty($name) || $price = "" || empty($phone) || empty($description) || empty($author)) {
+if (empty($img) || empty($name) || ($price === '') || empty($phone) || empty($description) || empty($author)) {
     die(json_encode("Empty fields"));
 }
 
-$idUserExists = "SELECT id FROM users WHERE id = ? ";
-$stmt = $conn->prepare($idUserExists);
-$stmt->bind_param("i", $author);
+$isIdExists = empty($id) ? "SELECT id FROM users WHERE id = ? " : "SELECT * FROM ideas WHERE id = ?";
+$stmt = $conn->prepare($isIdExists);
+$parameter = empty($id) ? $author : $id;
+$stmt->bind_param("i", $parameter);
 $stmt->execute();
 $result = $stmt->get_result();
 $stmt->close();

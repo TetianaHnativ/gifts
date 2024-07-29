@@ -1,4 +1,4 @@
-import { ModalManagement } from "./functions.js";
+import { ModalManagement } from "./modal.js";
 
 function questionnaireLink() {
     window.location.href = "questionnaire.html";

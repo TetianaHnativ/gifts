@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Raleway:wght@700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/wrapper.css" />
+    <link rel="stylesheet" href="../styles/modal.css" />
+
+    <link rel="stylesheet" href="../styles/orderModal.css" />
+
+    <link rel="stylesheet" href="../styles/myAccountHeader.css" />
+    <link rel="stylesheet" href="../styles/myAccountMain.css" />
+    <link rel="stylesheet" href="../styles/myAccountModals.css" />
+
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <title>Gifts</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="user">
+                <i class="fas fa-user-circle"></i>
+                <h3 class="user-title">User</h3>
+            </div>
+            <nav class="bacis-navigation">
+                <ul class="nav-list">
+                    <li class="nav-links-item">
+                        <a class="nav-links" href="index.html"><i class="fa fa-home"></i> Головна <i
+                                class="fa fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-links-item">
+                        <a class="nav-links" href="#favourites-gifts"><i class="fas fa-heart"></i> Обрані подарунки
+                            <i class="fas fa-gift"></i>
+                        </a>
+                    </li>
+                    <li class="nav-links-item">
+                        <a class="nav-links" href="#basket"><i class="fas fa-shopping-basket"></i> Кошик
+                            <i class="fas fa-shopping-basket"></i>
+                        </a>
+                    </li>
+                    <li class="nav-links-item">
+                        <a class="nav-links" href="#my-data"><i class="fas fa-database"></i> Особисті дані
+                            <i class="fas fa-database"></i>
+                        </a>
+                    </li>
+                    <li class="nav-links-item">
+                        <a class="nav-links" href="#my-ideas"><i class="fas fa-lightbulb"></i> Мої ідеї
+                            <i class="fas fa-lightbulb"></i>
+                        </a>
+                    </li>
+                    <li class="nav-links-item">
+                        <a class="nav-links" href="#favourites-ideas"><i class="fas fa-heart"></i> Обрані ідеї
+                            <i class="fas fa-lightbulb"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="log-out">Вийти</button>
+        </header>
+
+        <div id="menu" class="fa fa-bars"></div>
+
+        <main>
+            <section id="favourites-gifts">
+                <h2 class="important-title favourites-gifts-title">Обрані подарунки</h2>
+                <ul class="list" id="favourites-gifts-list"></ul>
+            </section>
+
+            <section id="basket">
+                <h2 class="important-title basket-main-title">Кошик</h2>
+                <ul class="list" id="basket-gifts-list"></ul>
+                <button class="my-account-button" id="buy-button" disabled>Замовити все</button>
+            </section>
+
+            <section id="my-data">
+                <h2 class="important-title data-main-title">Особисті дані</h2>
+                <form action="" class="my-data-form">
+                    <div class="form-elements">
+                        <input type="text" class="my-data-parameter" id="surname" placeholder="Введіть прізвище"
+                            required />
+                        <input type="text" class="my-data-parameter" id="name" placeholder="Введіть ім'я" required />
+                        <input type="tel" class="my-data-parameter" id="phone" placeholder="Введіть номер телефону"
+                            minlength="13" maxlength="13" pattern="\+[0-9]{12}"
+                            title="Формат міжнародний (+12 цифр): +XXXXXXXXXXXX" required />
+                        <input type="email" class="my-data-parameter" id="login" placeholder="Введіть електронну пошту"
+                            pattern=".+@.+\..+"
+                            title="Домен електронної адреси має містити крапку. Необхідний формат: example@example.com"
+                            required />
+                        <div class="old-password-container">
+                            <input type="password" class="my-data-parameter" id="old-password"
+                                placeholder="Введіть старий пароль" minlength="8" />
+
+                            <button type="button" class="my-data-button confirm-button">Підтвердити</button>
+                        </div>
+                        <input type="password" class="my-data-parameter" id="new-password"
+                            placeholder="Введіть новий пароль" pattern="^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)\S*$"
+                            title="Пароль має містити хоча б одну велику та маленьку літери та хоча б одну цифру, все без пробілів!"
+                            minlength="8" autocomplete="new-password" disabled />
+                        <input type="password" class="my-data-parameter" id="new-password-confirmation"
+                            placeholder="Підтвердьте новий пароль" pattern="^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)\S*$"
+                            title="Пароль має містити хоча б одну велику та маленьку літери та хоча б одну цифру, все без пробілів!"
+                            minlength="8" autocomplete="password" disabled />
+                    </div>
+
+                    <p class="message"></p>
+                    <button type="submit" class="my-data-button submit-button">Зберегти</button>
+                </form>
+            </section>
+
+            <section id="my-ideas">
+                <h2 class="important-title my-ideas-title">Мої ідеї</h2>
+                <ul class="list" id="my-ideas-list"></ul>
+            </section>
+
+            <section id="favourites-ideas">
+                <h2 class="important-title favourites-ideas-title">Обрані ідеї</h2>
+                <ul class="list" id="favourites-ideas-list"></ul>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-container" id="delete-modal">
+        <div class="container">
+            <button class="modal-close-button" id="delete-close-button">x</button>
+
+            <h3 class="modal-title" id="delete-title"> Чи дійсно хочете видалити?</h3>
+
+            <div class="modal-buttons">
+                <button class="modal-button" id="delete-item-button">Видалити</button>
+                <button class="modal-button" id="cancel-item-button">Відмінити</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-container" id="edit-idea-modal">
+        <div class="container" id="edit-idea-container">
+            <button class="modal-close-button" id="close-modal-idea">x</button>
+
+            <h3 class="modal-title" id="edit-idea-title">Редагуй ідею</h3>
+
+            <form id="idea-form" action="" class="modal-form">
+                <input type="url" id="modal-imageUrl" name="imageUrl" class="modal-input"
+                    placeholder="URL зображення" />
+                <input type="text" id="modal-name" class="modal-input" placeholder="Назва ідеї" required />
+                <input type="text" id="modal-price" class="modal-input" name="price" placeholder="Ціна"
+                    pattern="^(?=.*[0-9])\d*(?:\.\d{0,2})?$" maxlength="8"
+                    title="Ціна може бути цілим або десятковим числом з не більше, ніж з двома знаками після КРАПКИ"
+                    value="0" required />
+                <input type="tel" id="modal-phone-idea" class="modal-input" name="phone" placeholder="Номер телефону"
+                    minlength="13" maxlength="13" pattern="\+[0-9]{12}"
+                    title="Формат міжнародний (+12 цифр): +XXXXXXXXXXXX" />
+                <textarea id="modal-description" class="modal-textarea" name="" id="" cols="30" rows="10"
+                    placeholder="Опис" required></textarea>
+
+                <button id="edit-button" class="save-button">Редагувати</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-container" id="basket-modal">
+        <div class="container" id="modal-basket-container">
+            <button type="button" class="modal-close-button basket-delete" id="basket-close-button">x</button>
+
+            <h3 class="modal-title" id="basket-title">Кошик</h3>
+
+            <form id="order-form" action="" class="modal-form">
+                <ul class="basket-modal-list" id="order-list"></ul>
+
+                <p class="modal-price-text all-price-text">
+                    Загальна ціна замовлення: <span class="modal-price all-price" id="modal-all-price"></span> грн.
+                </p>
+
+                <input type="text" id="address-modal" class="modal-field-input order-input"
+                    placeholder="Повна адреса доставки" name="address" minlength="10" maxlength="255" required />
+                <input type="tel" id="modal-phone-basket" class="modal-field-input order-input" name="phone"
+                    placeholder="Номер телефону" minlength="13" maxlength="13" pattern="\+[0-9]{12}"
+                    title="Формат міжнародний (+12 цифр): +XXXXXXXXXXXX" required />
+
+                <ul class="packaging-list">
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="yellow-box-blue-ribbon"
+                            checked />Жовта коробка <i class="fas fa-box yellow"></i> та блакитна стрічка
+                        <i class="fas fa-ribbon blue"></i>
+                    </li>
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="blue-box-yellow-ribbon" />
+                        Блакитна коробка <i class="fas fa-box blue"></i> та жовта стрічка
+                        <i class="fas fa-ribbon yellow"></i>
+                    </li>
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="yellow-box-black-ribbon" />
+                        Жовта коробка <i class="fas fa-box yellow"></i> та чорна стрічка
+                        <i class="fas fa-ribbon black"></i>
+                    </li>
+                    <li class="packaging-item">
+                        <input type="radio" name="packaging" class="packaging-ragio" value="blue-box-white-ribbon" />
+                        Блакитна коробка <i class="fas fa-box blue"></i> та біла стрічка
+                        <i class="fas fa-ribbon white"></i>
+                    </li>
+                </ul>
+
+                <button id="order-button" class="save-button">Замовити</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-container" id="message-modal"></div>
+
+    <script type="module" src="../scripts/myAccount.js"></script>
+</body>
+
+</html>

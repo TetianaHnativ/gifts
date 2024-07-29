@@ -1,4 +1,6 @@
-import { showCondition, saveElementInSession, searchByName, sortItems, dataBaseConnection, ModalManagement } from "./functions.js";
+import { removeSpaces, showCondition, saveElementInSession, searchByName, sortItems, dataBaseConnection } from "./functions.js";
+
+import { ModalManagement } from "./modal.js";
 
 const user = localStorage.getItem("user") || "";
 
@@ -9,7 +11,7 @@ const gifts = await dataBaseConnection("GET", "../phpDataBase/shopDatabase.php",
 if (gifts.length > 0) {
   gifts.forEach((element) => {
     const li = document.createElement("li");
-    li.classList.add("gifts-list-item");
+    li.classList.add("gift-list-item");
     li.setAttribute("data-id", element.id);
     li.innerHTML = `<a href="./gift.html"
               ><img
@@ -28,15 +30,15 @@ if (gifts.length > 0) {
   });
 }
 
-const giftsListItem = document.querySelectorAll(".gifts-list-item");
+const giftsListItem = document.querySelectorAll(".gift-list-item");
 
-if (giftsList) giftsList.addEventListener("click", (evt) => saveElementInSession(evt, ".gifts-list-item", gifts, "gift"));
+if (giftsList) giftsList.addEventListener("click", (evt) => saveElementInSession(evt, ".gift-list-item", gifts, "gift"));
 
 //------------------------------------------------------------ Search by name ------------------------------------------------------------
 
 const searchInput = document.querySelector(".search-input");
 
-if (searchInput) searchInput.addEventListener("blur", () => searchInput.value = searchInput.value.trim().replace(/\s+/g, " "));
+if (searchInput) searchInput.addEventListener("blur", removeSpaces);
 
 window.addEventListener("pageshow", () => searchInput.value = "");
 
@@ -76,7 +78,6 @@ if (buttonsList) buttonsList.addEventListener("click", (evt) => {
   }
 });
 
-
 //------------------------------------------------------------ Questionnaire ------------------------------------------------------------
 
 const clickedButton = sessionStorage.getItem("clickedButton");
@@ -88,7 +89,7 @@ if (clickedButton === "true") {
 
   let questionnaireFilter = [];
 
-  if (questionnaireString) questionnaireFilter = JSON.parse(questionnaireString);
+  if (questionnaireString && questionnaireString !== "undefined") questionnaireFilter = JSON.parse(questionnaireString);
 
   let categories = [];
 
