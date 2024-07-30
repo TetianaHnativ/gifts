@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -33,18 +33,18 @@
         <main>
             <main>
                 <form class="authorization">
-                    <h1 class="authorization-title">Авторизація</h1>
-                    <input type="email" class="authorization-parameter" id="login-email"
-                        placeholder="Введіть електронну пошту" required />
-                    <input type="password" class="authorization-parameter" id="password" placeholder="Введіть пароль"
+                    <h1 class="authorization-title">Authorization</h1>
+                    <input type="email" class="authorization-parameter" id="login-email" placeholder="Enter your email"
                         required />
+                    <input type="password" class="authorization-parameter" id="password"
+                        placeholder="Enter your password" required />
                     <p class="message" id="message-authorization"></p>
-                    <button class="authorization-button">Увійти</button>
+                    <button class="authorization-button">Login</button>
                     <p class="registration-question">
-                        Немає акаунту?
-                        <a href="./registration.html" class="registration-link">Зареєструйтеся!</a>
+                        No account?
+                        <a href="./registration.html" class="registration-link">Register!</a>
                     </p>
-                    <p class="password-link">Забули пароль?</p>
+                    <p class="password-link">Forgot password?</p>
                 </form>
             </main>
         </main>
@@ -56,33 +56,33 @@
                 x
             </button>
             <h3 class="modal-title">
-                На електронну адресу, вказану при реєстрації, прийде число (чекати до 1 хв)
+                A number will be sent to the email address provided during registration (wait up to 1 minute)
             </h3>
             <form class="modal-form" id="forgot-password-form">
                 <input type="email" name="email" class="modal-field-input" id="modal-email"
-                    placeholder="Введіть електронну пошту" pattern=".+@.+\..+"
-                    title="Домен електронної адреси має містити крапку. Необхідний формат: example@example.com"
+                    placeholder="Enter your email" pattern=".+@.+\..+"
+                    title="The domain of the email address must contain a dot. Required format: example@example.com"
                     required />
                 <button class="modal-form-button" id="button-modal-send">
-                    Відправити
+                    Send
                 </button>
 
                 <input type="text" name="number-confirmation" class="modal-field-input" id="modal-number-confirmation"
-                    placeholder="Введіть число" minlength="6" maxlength="6" pattern="^\d+$" title="Тільки цифри"
+                    placeholder="Enter the number" minlength="6" maxlength="6" pattern="^\d+$" title="Digits only"
                     disabled required />
                 <button class="modal-form-button" id="button-modal-confirmation" disabled>
-                    Підтвердити
+                    Confirm
                 </button>
 
                 <input type="password" name="password" class="modal-field-input" id="modal-password"
-                    placeholder="Введіть новий пароль" pattern="^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)\S*$" title="Пароль
-              має містити хоча б одну велику та маленьку літери та хоча б одну
-              цифру, все без пробілів!" minlength="8" disabled required />
+                    placeholder="Enter a new password" pattern="^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)\S*$" title="Password
+                    must contain at least one uppercase and one lowercase letter and at least one
+                    digit, with no spaces!" minlength="8" disabled required />
                 <input type="password" name="password-confirmation" class="modal-field-input"
-                    id="modal-password-confirmation" placeholder="Підтвердьте пароль" minlength="8" disabled required />
+                    id="modal-password-confirmation" placeholder="Confirm password" minlength="8" disabled required />
                 <p class="message" id="message-modal-password"></p>
                 <button class="modal-form-button" id="button-modal-save" disabled>
-                    Зберегти
+                    Save
                 </button>
             </form>
         </div>

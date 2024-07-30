@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -32,30 +32,30 @@
 
         <main>
             <form class="registration" action="./authorization.html" id="registration-form">
-                <h1 class="registration-title">Реєстрація</h1>
-                <input type="text" class="registration-parameter" id="surname" placeholder="Введіть прізвище"
+                <h1 class="registration-title">Registration</h1>
+                <input type="text" class="registration-parameter" id="surname" placeholder="Enter your surname"
                     required />
-                <input type="text" class="registration-parameter" id="name" placeholder="Введіть ім'я" required />
-                <input type="tel" class="registration-parameter" id="phone" placeholder="Введіть номер телефону"
+                <input type="text" class="registration-parameter" id="name" placeholder="Enter your first name"
+                    required />
+                <input type="tel" class="registration-parameter" id="phone" placeholder="Enter your phone number"
                     minlength="13" maxlength="13" pattern="\+[0-9]{12}"
-                    title="Формат міжнародний (+12 цифр): +XXXXXXXXXXXX" required />
-                <input type="email" class="registration-parameter" id="login" placeholder="Введіть електронну пошту"
+                    title="International format (+12 digits): +XXXXXXXXXXXX" required />
+                <input type="email" class="registration-parameter" id="login" placeholder="Enter your email address"
                     pattern=".+@.+\..+"
-                    title="Домен електронної адреси має містити крапку. Необхідний формат: example@example.com"
-                    required />
+                    title="The email domain must contain a dot. Required format: example@example.com" required />
 
-                <input type="password" class="registration-parameter" id="password" placeholder="Введіть пароль"
-                    pattern="^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)\S*$" title="Пароль
-                  має містити хоча б одну велику та маленьку літери та хоча б одну
-                  цифру, все без пробілів!" minlength="8" required />
+                <input type="password" class="registration-parameter" id="password" placeholder="Enter your password"
+                    pattern="^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)\S*$"
+                    title="Password must contain at least one uppercase and one lowercase letter, and at least one digit, with no spaces!"
+                    minlength="8" required />
 
                 <input type="password" class="registration-parameter" id="password-confirmation"
-                    placeholder="Підтвердьте пароль" minlength="8" required />
+                    placeholder="Confirm your password" minlength="8" required />
                 <p class="message"></p>
-                <button class="registration-button">Зареєструватися</button>
+                <button class="registration-button">Register</button>
                 <p class="authorization-question">
-                    Уже зареєстровані?
-                    <a href="./authorization.html" class="authorization-link">Ввійдіть у систему!</a>
+                    Already registered?
+                    <a href="./authorization.html" class="authorization-link">Log in!</a>
                 </p>
             </form>
         </main>

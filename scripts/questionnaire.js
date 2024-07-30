@@ -61,9 +61,9 @@ function radioButton(buttonName) {
             filter[3] = selectedValue;
             break;
         default:
-            console.log("Жодна радіокнопка не вибрана");
+            console.log("No radio button is selected");
             break;
     }
 
-    questionnaire[buttonName] = (selectedText === "Інше" ? "-" : selectedText);
+    questionnaire[buttonName] = (selectedText === "Other" ? "-" : selectedText);
 }

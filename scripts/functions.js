@@ -114,7 +114,7 @@ async function addToList({ objectName, objectItemId, user, path, messageItem, me
 
     const itemInTable = await dataBaseConnection("POST", path, myObject);
 
-    const message = itemInTable === "Item is already exist" ? `${messageItem} вже додано до ${messageList}!` : `${messageItem} додано до ${messageList}!`;
+    const message = itemInTable === "Item is already exist" ? `${messageItem} has already been added to the ${messageList}!` : `${messageItem} added to the ${messageList}!`;
 
     ModalManagement(message, "#message-modal", "#close-modal-message", 0);
 

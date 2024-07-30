@@ -45,19 +45,19 @@ function radioButtonPackaging() {
 
     switch (selectedRadioButton) {
         case "yellow-box-blue-ribbon":
-            packaging = "Жовта коробка та блакитна стрічка";
+            packaging = "Yellow box with blue ribbon";
             break;
         case "blue-box-yellow-ribbon":
-            packaging = "Блакитна коробка та жовта стрічка";
+            packaging = "Blue box with yellow ribbon";
             break;
         case "yellow-box-black-ribbon":
-            packaging = "Жовта коробка та чорна стрічка";
+            packaging = "Yellow box with black ribbon";
             break;
         case "blue-box-white-ribbon":
-            packaging = "Блакитна коробка та біла стрічка";
+            packaging = "Blue box with white ribbon";
             break;
         default:
-            console.log("Жодна радіокнопка не вибрана");
+            console.log("No radio button is selected");
             break;
     }
 
@@ -93,7 +93,7 @@ function handleIdeaForm({ modalImageUrl, modalName, modalIdeaPrice, modalPhoneId
 
         if (ideaDataBaseResult === "Request is successful") {
             document.getElementById(formID).style.display = "none";
-            ModalManagement(`Вашу ідею ${messageAction}!`, "#message-modal", "#close-modal-message", ideaForm);
+            ModalManagement(`Your idea has been ${messageAction}!`, "#message-modal", "#close-modal-message", ideaForm);
         }
     }
 }
@@ -113,7 +113,7 @@ async function orderGiftsSubmit({ gifts, modalPrice, modalAddress, modalPhone, o
 
     if (orderDataBaseResult === "Order is successful") {
         formID.style.display = "none";
-        ModalManagement("Замволення успішне!", "#message-modal", "#close-modal-message", orderForm);
+        ModalManagement("Order is successful!", "#message-modal", "#close-modal-message", orderForm);
     }
 }
 

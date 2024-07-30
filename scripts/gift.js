@@ -28,17 +28,17 @@ giftImg.setAttribute("alt", gift.name);
 
 giftName.textContent = gift.name;
 giftCategory.textContent = gift.category;
-giftPrice.textContent = gift.price + " грн.";
+giftPrice.textContent = gift.price + " €";
 
 const giftBasket = document.querySelector(".gift-basket");
 const giftSelected = document.querySelector(".gift-selected");
 const giftBuyNow = document.querySelector(".gift-buy-now");
 
 if (gift.number > 0) {
-    giftAvailability.textContent = "У наявності";
+    giftAvailability.textContent = "Available ";
     giftAvailability.style.color = "#038cff";
 } else {
-    giftAvailability.textContent = "Немає в наявності";
+    giftAvailability.textContent = "Not available";
     giftAvailability.style.color = "#FF0000";
 
     buttonsStyle(giftBasket);
@@ -51,9 +51,9 @@ buttonAddToList({
     objectItemId: gift.id,
     user: user,
     path: "../phpDataBase/basketDatabase.php",
-    messageItem: "Подарунок",
-    messageList: "кошику",
-    title: "Для додавання подарунку в кошик, будь ласка, авторизуйтеся!"
+    messageItem: "Gift",
+    messageList: "Card",
+    title: "To add a gift to the Cart, please log in!"
 });
 
 buttonAddToList({
@@ -62,9 +62,9 @@ buttonAddToList({
     objectItemId: gift.id,
     user: user,
     path: "../phpDataBase/favouritesDatabase.php",
-    messageItem: "Подарунок",
-    messageList: "списку обраних",
-    title: "Для додавання подарунку в обрані, будь ласка, авторизуйтеся!"
+    messageItem: "Gift",
+    messageList: "Favorites",
+    title: "To add a gift to Favorites, please log in!"
 });
 
 function buttonsStyle(button) {
@@ -79,7 +79,7 @@ if (giftBuyNow) giftBuyNow.addEventListener("click", () => {
         ModalManagement(``, "#order-modal", "#close-modal-order", 0);
         document.getElementById("order-form").reset();
     } else {
-        ModalManagement("Для замовлення подарунку, будь ласка, авторизуйтеся!", "#message-modal", "#close-modal-message", 0);
+        ModalManagement("To order a gift, please log in!", "#message-modal", "#close-modal-message", 0);
     }
 });
 

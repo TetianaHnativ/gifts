@@ -17,7 +17,7 @@ main {
     align-items: center;
     gap: 1.25rem;
 
-    padding: 1.25rem;
+    padding: 1.875rem 2.5rem;
     margin: 0.625rem;
     border: 0.3125rem outset #ffbe03;
     border-radius: 0.625rem;
@@ -63,7 +63,6 @@ main {
 @media (max-width: 425px) {
     .registration {
         gap: 1.25rem;
-        padding: 1rem 0.3125rem;
     }
 
     .registration-title {

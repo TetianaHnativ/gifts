@@ -60,19 +60,19 @@ async function fetchFunction(myFunction) {
 
 function sendEmail(data) {
     if (data === "Email is wrong") {
-        messageModalPassword.textContent = "Електронна пошта неправильна!";
+        messageModalPassword.textContent = "Email address is incorrect!";
         isElementDisabled(true, modalNumberConfirmation, buttonModalConfirmation, modalPassword, modalPasswordConfirmation, buttonModalSave);
     } else if (data === "Random number sent to email") {
         messageModalPassword.textContent = "";
         isElementDisabled(false, modalNumberConfirmation, buttonModalConfirmation);
     } else {
-        messageModalPassword.textContent = "Помилка відправлення листа!";
+        messageModalPassword.textContent = "Error sending the letter";
     }
 }
 
 function numberChecking(data) {
     if (data === "Only email is right") {
-        messageModalPassword.textContent = "Неправильне число!";
+        messageModalPassword.textContent = "Wrong number!";
         isElementDisabled(true, modalPassword, modalPasswordConfirmation, buttonModalSave);
     } else if (data === "Random number request is successful") {
         messageModalPassword.textContent = "";
@@ -82,11 +82,11 @@ function numberChecking(data) {
 
 function passwordChecking(data) {
     if (data === "Passwords do not match") {
-        messageModalPassword.textContent = "Паролі не збігаються!";
+        messageModalPassword.textContent = "Passwords do not match!";
     } else if (data === "Updating password request is successful") {
         messageModalPassword.textContent = "";
         document.getElementById("authorization-modal").style.display = "none";
-        ModalManagement("Ваш пароль оновлено!", "#message-modal", "#close-modal-message", forgotPasswordForm);
+        ModalManagement("Your password has been updated!", "#message-modal", "#close-modal-message", forgotPasswordForm);
     }
 }
 

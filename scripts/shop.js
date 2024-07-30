@@ -22,7 +22,7 @@ if (gifts.length > 0) {
               <div class="gift-information">
                 <h3 class="gift-name">${element.name}</h3>
                 <p class="gift-category">${element.category}</p>
-                <p class="gift-price">${element.price} грн.</p>
+                <p class="gift-price">${element.price} €</p>
               </div>
             </a>`;
 
@@ -59,7 +59,7 @@ function filterItems(filterParametr, categories) {
     const categoryGift = element.querySelector(".gift-category").textContent;
 
     if (filterParametr === "filterGiftsByButtons") {
-      showCondition((categories === "Усі" || categoryGift === categories), element);
+      showCondition((categories === "All" || categoryGift === categories), element);
     } else if (filterParametr === "filterGiftsQuestionnaire") {
       showCondition((categories.includes(categoryGift)), element);
     }
@@ -95,14 +95,14 @@ if (clickedButton === "true") {
 
   if (questionnaireFilter.length > 0) {
     const categoryConditions = [
-      { filters: ["male"], category: "Для чоловіків" },
-      { filters: ["female"], category: "Для жінок" },
-      { filters: ["child"], category: "Для дітей" },
-      { filters: ["elderly"], category: "Для літніх людей" },
-      { filters: ["office", "child", "blogging"], category: "Канцелярія" },
-      { filters: ["technology", "blogging"], category: "Техніка" },
-      { filters: ["housekeeping"], category: "Товари для дому" },
-      { filters: ["christmas", "st-valentine-day", "st-nicholas-day"], category: "Свята" }
+      { filters: ["male"], category: "For Men" },
+      { filters: ["female"], category: "For Women" },
+      { filters: ["child"], category: "For Children" },
+      { filters: ["elderly"], category: "For Elderly" },
+      { filters: ["office", "child", "blogging"], category: "Stationery" },
+      { filters: ["technology", "blogging"], category: "Electronics" },
+      { filters: ["housekeeping"], category: "Home Goods" },
+      { filters: ["christmas", "st-valentine-day", "st-nicholas-day"], category: "Holidays" }
     ];
 
     categoryConditions.forEach(element => {
@@ -111,7 +111,7 @@ if (clickedButton === "true") {
       }
     });
   } else {
-    console.log("Користувач просто переходить на другу сторінку");
+    console.log("The user simply goes to another page");
   }
 
   filterItems("filterGiftsQuestionnaire", categories);
@@ -131,5 +131,5 @@ if (basketLink && basketNumber)
     basketNumber.textContent = await dataBaseConnection("POST", "../phpDataBase/basketNumberDatabase.php", { user: user });
   } else {
     basketLink.href = "#";
-    basketLink.addEventListener("click", () => ModalManagement("Для переходу в кошик авторизуйтеся, будь ласка!", "#message-modal", "#close-modal-message", 0));
+    basketLink.addEventListener("click", () => ModalManagement("To go to the Cart, please log in!", "#message-modal", "#close-modal-message", 0));
   }

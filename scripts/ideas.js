@@ -21,8 +21,8 @@ if (ideas.length > 0) {
                     />
                     <div class="idea-information">
                         <h3 class="idea-name">${element.name}</h3>
-                        <p class="idea-author">${element.surname} ${element.username}</p>
-                        <p class="idea-price">${element.price > 0 ? element.price + " грн." : "Безкоштовно"} </p>
+                        <p class="idea-author">${element.username} ${element.surname}</p>
+                        <p class="idea-price">${element.price > 0 ? element.price + " €" : "Free"} </p>
                     </div>
                 </a>`;
         ideasList.append(li);
@@ -57,10 +57,10 @@ const addIdeaButton = document.getElementById("add-idea");
 
 if (addIdeaButton) addIdeaButton.addEventListener("click", () => {
     if (user > 0) {
-        ModalManagement(``, "#add-idea-modal", "#close-modal-idea", 0);
+        ModalManagement("", "#add-idea-modal", "#close-modal-idea", 0);
         document.querySelector("#idea-form").reset();
     } else {
-        ModalManagement("Для додавання ідеї, будь ласка, авторизуйтеся в системі!", "#message-modal", "#close-modal-message", 0);
+        ModalManagement("To add an idea, please log in!", "#message-modal", "#close-modal-message", 0);
     }
 });
 
@@ -90,5 +90,5 @@ if (ideaForm) ideaForm.addEventListener("submit", handleIdeaForm({
     ideaID: "",
     ideaUser: user,
     formID: "add-idea-modal",
-    messageAction: "додано",
+    messageAction: "added",
 }));

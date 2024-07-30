@@ -8,7 +8,7 @@ async function isUserAuthorized() {
 
         if (loginLink) {
             if (myUser) {
-                loginLink.textContent = "Кабінет";
+                loginLink.textContent = "Account";
                 loginLink.href = "myAccount.html";
             } else {
                 loginLink.textContent = "Login";

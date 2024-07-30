@@ -15,7 +15,7 @@ async function questionnaireLinkGo() {
                 if (user) {
                     questionnaireLink();
                 } else {
-                    ModalManagement("Для заповнення анкети авторизуйтеся, будь ласка!", "#message-modal", "#close-modal-message", 0);
+                    ModalManagement("To fill out the questionnaire, please log in!", "#message-modal", "#close-modal-message", 0);
                 }
             });
         }

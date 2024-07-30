@@ -29,7 +29,8 @@ ideaImg.setAttribute("alt", idea.name);
 ideaName.textContent = idea.name;
 ideaAuthor.textContent = `${idea.surname} ${idea.username}`;
 ideaPhone.textContent = idea.phone;
-ideaPrice.textContent = idea.price > 0 ? idea.price + " грн." : "Безкоштовно";
+ideaPhone.setAttribute("href", "tel:" + idea.phone);
+ideaPrice.textContent = idea.price > 0 ? idea.price + " €" : "Free";
 
 const description = idea.description.split("\n");
 
@@ -49,6 +50,6 @@ buttonAddToList({
     user: user,
     path: "../phpDataBase/favouritesDatabase.php",
     messageItem: "Idea",
-    messageList: "списку обраних",
-    title: "Для додавання ідеї в обрані, будь ласка, авторизуйтеся!"
+    messageList: "Favorites",
+    title: "To add an idea to Favorites, please log in!"
 });

@@ -21,7 +21,7 @@ if (authorizationForm) {
         event.preventDefault();
 
         if (user) {
-            ModalManagement("Ви вже авторизовані в системі!", "#message-modal", "#close-modal-message", authorizationForm);
+            ModalManagement("You are already logged in!", "#message-modal", "#close-modal-message", authorizationForm);
         } else {
             authentication();
         }
@@ -41,19 +41,19 @@ async function authentication() {
     const dataBaseConnectionResult = await dataBaseConnection("POST", "../phpDataBase/authorizationDatabase.php", userData);
 
     if (dataBaseConnectionResult === "User isn't registered") {
-        messageAuthorization.textContent = "Вас немає в системі, зареєструйтеся, будь ласка!";
+        messageAuthorization.textContent = "You are not in the system, please register!";
 
     } else if (dataBaseConnectionResult === "Blocking") {
-        messageAuthorization.textContent = "Ваш обліковий запис заблоковано";
+        messageAuthorization.textContent = "Your account has been blocked";
 
     } else if (dataBaseConnectionResult === "Wrong") {
-        messageAuthorization.textContent = "Логін або пароль неправильні!";
+        messageAuthorization.textContent = "The login or password is incorrect!";
 
     } else if (dataBaseConnectionResult.split(",")[0] === "Login is successful") {
         localStorage.setItem("user", dataBaseConnectionResult.split(",")[1]);
 
         messageAuthorization.textContent = "";
 
-        ModalManagement("Авторизація успішна!", "#message-modal", "#close-modal-message", authorizationForm);
+        ModalManagement("Authorization is successful!", "#message-modal", "#close-modal-message", authorizationForm);
     }
 }

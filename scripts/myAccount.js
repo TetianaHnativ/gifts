@@ -80,8 +80,8 @@ function ideasHTML(list, classHTML, listHTML) {
               />
               <div class="idea-information">
                 <h3 class="idea-name ${classHTML}-idea-name">${element.name}</h3>
-                <p class="idea-author ${classHTML}-idea-author">${element.surname} ${element.username}</p>
-                <p class="idea-price ${classHTML}-idea-price">${element.price > 0 ? element.price + " грн." : "Безкоштовно"}</p>
+                <p class="idea-author ${classHTML}-idea-author">${element.username} ${element.surname} </p>
+                <p class="idea-price ${classHTML}-idea-price">${element.price > 0 ? element.price + " €" : "Free"}</p>
               </div>
             </a>`;
         listHTML.append(li);
@@ -97,7 +97,7 @@ async function deletePart(deleteButton, element, objectName, modalTitleElement, 
 
     if (response === "Deletion is successful") {
         deleteButton.style.display = "none";
-        ModalManagement(`Отже, ${modalTitleElement} видалено з ${modalTitleList}!`, "#message-modal", "#close-modal-message", document.querySelector(".my-data-form"));
+        ModalManagement(`The ${modalTitleElement} has been removed from ${modalTitleList}!`, "#message-modal", "#close-modal-message", document.querySelector(".my-data-form"));
     }
 }
 
@@ -117,7 +117,7 @@ function deleteModalFunction({ elementsClass, closestClass, array, objectName, m
                 button.addEventListener("click", (evt) => {
                     const element = findElement(evt, closestClass, array);
                     if (element && element !== "undefined") {
-                        ModalManagement(`Чи дійсно хочете видалити ${modalTitleElement} "${element.name}" з ${modalTitleList}?`, "#delete-modal", "#delete-close-button", 0);
+                        ModalManagement(`Do you really want to remove the ${modalTitleElement} "${element.name}" from ${modalTitleList}?`, "#delete-modal", "#delete-close-button", 0);
 
                         if (deleteItemButton) deleteItemButton.removeEventListener("click", handleDelete);
 
@@ -150,8 +150,8 @@ deleteModalFunction({
     closestClass: ".favourites-gift-item",
     array: gifts,
     objectName: "favourite-gift",
-    modalTitleElement: "подарунок",
-    modalTitleList: "улюблених"
+    modalTitleElement: "gift",
+    modalTitleList: "Favourites"
 });
 
 
@@ -172,8 +172,8 @@ deleteModalFunction({
     closestClass: ".basket-gift-item",
     array: basket,
     objectName: "basket-gift",
-    modalTitleElement: "подарунок",
-    modalTitleList: "кошика"
+    modalTitleElement: "gift",
+    modalTitleList: "Cart"
 });
 
 const buyButton = document.getElementById("buy-button");
@@ -205,7 +205,7 @@ if (basket && basket.length > 0) basket.forEach((element) => {
            ${element.name}
            </h3>
            <label for="number" class="modal-label-number"
-             >Кількість:
+             >Quantity:
              <input
                type="number"
                class="modal-field-number"
@@ -216,8 +216,8 @@ if (basket && basket.length > 0) basket.forEach((element) => {
              />
            </label>
            <p class="modal-price-text">
-             Всього:
-             <span class="modal-price one-price">${element.price}</span> грн.
+             Total price:
+             <span class="modal-price one-price">${element.price}</span> €
            </p>
          </div>
        `;
@@ -259,7 +259,7 @@ if (orderDelete) orderDelete.forEach((button) => {
     if (button) button.addEventListener("click", async function (evt) {
         const gift = findElement(evt, ".basket-modal-item", basket);
         if (gift && gift !== "undefined") {
-            deletePart(basketModal, gift, "basket-gift", "подарунок", "кошика");
+            deletePart(basketModal, gift, "basket-gift", "gift", "Cart");
         }
     });
 });
@@ -353,7 +353,7 @@ if (userData) {
     const data = await dataBaseConnection("POST", "../phpDataBase/myAccountDataBase.php", { id: userData.id, elements: userData.elements }) || [];
 
     if (Array.isArray(data) && data.length > 0) {
-        userTitle.textContent = data[0].surname + " " + data[0].username;
+        userTitle.textContent = data[0].username + " " + data[0].surname;
 
         surname.value = data[0].surname;
         username.value = data[0].username;
@@ -375,12 +375,12 @@ if (userData) {
 
             } else if (checkPassword === "Old password is wrong") {
                 ElementsOptions(true, newPassword, passwordConfirmation);
-                message.textContent = "Старий пароль неправильний!";
+                message.textContent = "The old password is incorrect!";
                 elementEmptyValue(oldPassword, newPassword, passwordConfirmation);
 
             } else {
                 ElementsOptions(true, newPassword, passwordConfirmation);
-                message.textContent = "Спробуйте, будь ласка, пізніше!";
+                message.textContent = "Please, try again later!";
                 elementEmptyValue(oldPassword, newPassword, passwordConfirmation);
             }
 
@@ -395,7 +395,7 @@ if (userData) {
         event.preventDefault();
 
         if (newPassword.value && passwordConfirmation.value && newPassword.value !== passwordConfirmation.value) {
-            message.textContent = "Нові паролі не збігаються!";
+            message.textContent = "The new passwords do not match!";
 
         } else {
             message.textContent = "";
@@ -409,11 +409,11 @@ if (userData) {
             let myMessage = "";
 
             if (editUserData === "Updating is successful") {
-                myMessage = "Ваші дані оновлено!";
+                myMessage = "Your data has been updated!";
             } else if (editUserData === "The update is successful except email") {
-                myMessage = "Ваші дані оновлено, КРІМ пошти, така вже є в системі, виберіть іншу, будь ласка!";
+                myMessage = "Your details have been updated EXCEPT for email, this email address is already registered in the system, please choose another one!";
             } else {
-                myMessage = "Спробуйте, будь ласка, пізніше!";
+                myMessage = "Please, try again later!";
                 console.log(editUserData);
             }
 
@@ -463,7 +463,7 @@ deleteModalFunction({
     array: ownIdeas,
     objectName: "my-idea",
     modalTitleElement: "idea",
-    modalTitleList: "усіх списків"
+    modalTitleList: "all lists"
 });
 
 const ideaForm = document.getElementById("idea-form");
@@ -496,7 +496,7 @@ if (myIdeasEdit) {
                 return;
             }
 
-            ModalManagement(`Редагування ідеї "${idea.name}"`, "#edit-idea-modal", "#close-modal-idea", 0);
+            ModalManagement(`Editing an idea "${idea.name}"`, "#edit-idea-modal", "#close-modal-idea", 0);
 
             modalImageUrl.value = idea.img !== "../imgs/idea-img.jpg" ? idea.img : "";
             modalName.value = idea.name;
@@ -518,7 +518,7 @@ if (myIdeasEdit) {
                     ideaID: idea.id,
                     ideaUser: userData.id,
                     formID: "edit-idea-modal",
-                    messageAction: "редаговано",
+                    messageAction: "edited",
                 });
                 ideaForm.addEventListener("submit", currentHandler);
             }
@@ -545,7 +545,7 @@ deleteModalFunction({
     array: ideas,
     objectName: "favourite-idea",
     modalTitleElement: "idea",
-    modalTitleList: "улюблених"
+    modalTitleList: "Favourites"
 });
 
 // ------------------------------------------------------------------ Exit ------------------------------------------------------------------

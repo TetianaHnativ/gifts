@@ -80,6 +80,7 @@ main {
     margin-bottom: 0.625rem;
     padding-top: 0.625rem;
     color: #ffbc03;
+    letter-spacing: 0.0625rem;
     text-shadow: -0.0625rem -0.0625rem 0 #053053, 0.0625rem -0.0625rem 0 #053053, -0.0625rem 0.0625rem 0 #053053, 0.0625rem 0.0625rem 0 #053053;
 }
 

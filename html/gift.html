@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -34,7 +34,7 @@
         <header id="header"></header>
 
         <main>
-            <img src="../imgs/gift-img.jpg" alt="gift" class="gift-img" />
+            <img src="../imgs/gift-img.jpg" alt="Gift" class="gift-img" />
             <div class="gift-information">
                 <h3 class="gift-name">Not Found</h3>
                 <p class="gift-category">Not Found</p>
@@ -42,20 +42,19 @@
                 <p class="gift-availability">Not Found</p>
 
                 <p class="gift-additional">
-                    Оплата при доставці, доставка кур'єром за адресою (вказується при
-                    замовленні)
+                    Payment upon delivery, courier delivery to the address (provided during ordering)
                 </p>
                 <ul class="gift-buttons">
                     <div class="gift-buy-buttons">
                         <button class="gift-basket">
-                            Додати в кошик <i class="fas fa-shopping-basket"></i>
+                            Add to Cart <i class="fas fa-shopping-basket"></i>
                         </button>
                         <button class="gift-buy-now">
-                            Купити зараз <i class="fas fa-gift"></i>
+                            Buy Now <i class="fas fa-gift"></i>
                         </button>
                     </div>
                     <button class="gift-selected">
-                        Додати в обрані <i class="fas fa-heart"></i>
+                        Add to Favorites <i class="fas fa-heart"></i>
                     </button>
                 </ul>
             </div>
@@ -68,50 +67,46 @@
         <div class="container">
             <button class="modal-close-button" id="close-modal-order">x</button>
             <form class="modal-form" id="order-form">
-                <h3 class="modal-title" id="modal-title-order">Оформлення замовлення</h3>
+                <h3 class="modal-title" id="modal-title-order">Ordering</h3>
 
-                <label class="modal-label-number">Кількість подарунків:
+                <label class="modal-label-number">Number of gifts:
                     <input type="number" id="modal-number-input" class="modal-field-number" name="number" min="1"
                         value="1" required />
                 </label>
 
                 <p class="modal-price-text">
-                    Всього: <span class="modal-price"></span> грн.
+                    Total price: <span class="modal-price"></span> €
                 </p>
 
                 <input type="text" id="modal-address" class="modal-field-input" name="address"
-                    placeholder="Введіть адресу доставки" minlength="10" maxlength="255" required />
+                    placeholder="Enter delivery address" minlength="10" maxlength="255" required />
 
                 <input type="tel" id="modal-phone" class="modal-field-input" name="phone"
-                    placeholder="Введіть номер телефону" minlength="13" maxlength="13" pattern="\+[0-9]{12}"
-                    title="Формат міжнародний (+12 цифр): +XXXXXXXXXXXX" required />
+                    placeholder="Enter phone number" minlength="13" maxlength="13" pattern="\+[0-9]{12}"
+                    title="International format (+12 digits): +XXXXXXXXXXXX" required />
 
                 <ul class="packaging-list">
                     <li class="packaging-item">
                         <input type="radio" name="packaging" class="packaging-ragio" value="yellow-box-blue-ribbon"
                             checked />
-                        Жовта коробка <i class="fas fa-box yellow"></i> та блакитна
-                        стрічка
-                        <i class="fas fa-ribbon blue"></i>
+                        Yellow box <i class="fas fa-box yellow"></i> with blue ribbon <i class="fas fa-ribbon blue"></i>
                     </li>
                     <li class="packaging-item">
                         <input type="radio" name="packaging" class="packaging-ragio" value="blue-box-yellow-ribbon" />
-                        Блакитна коробка <i class="fas fa-box blue"></i> та жовта стрічка
-                        <i class="fas fa-ribbon yellow"></i>
+                        Blue box <i class="fas fa-box blue"></i> with yellow ribbon <i class="fas fa-ribbon yellow"></i>
                     </li>
                     <li class="packaging-item">
                         <input type="radio" name="packaging" class="packaging-ragio" value="yellow-box-black-ribbon" />
-                        Жовта коробка <i class="fas fa-box yellow"></i> та чорна стрічка
+                        Yellow box <i class="fas fa-box yellow"></i> with black ribbon
                         <i class="fas fa-ribbon black"></i>
                     </li>
                     <li class="packaging-item">
                         <input type="radio" name="packaging" class="packaging-ragio" value="blue-box-white-ribbon" />
-                        Блакитна коробка <i class="fas fa-box blue"></i> та біла стрічка
-                        <i class="fas fa-ribbon white"></i>
+                        Blue box <i class="fas fa-box blue"></i> with white ribbon <i class="fas fa-ribbon white"></i>
                     </li>
                 </ul>
 
-                <button class="modal-form-button save-button" id="order-modal-button">Оформити</button>
+                <button class="modal-form-button save-button" id="order-modal-button">Order</button>
             </form>
         </div>
     </div>

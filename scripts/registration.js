@@ -24,7 +24,7 @@ if (registrationForm) {
             event.preventDefault();
 
             if (password.value !== passwordConfirmation.value) {
-                message.textContent = "Паролі не збігаються!";
+                message.textContent = "Passwords do not match!";
             } else {
                 message.textContent = "";
 
@@ -53,12 +53,12 @@ async function saveUserData() {
     const dataBaseConnectionResult = await dataBaseConnection("POST", "../phpDataBase/registrationDataBase.php", userData);
 
     if (dataBaseConnectionResult === "Email is already registered") {
-        message.textContent = "Користувач з такою поштою вже зареєстрований у системі";
+        message.textContent = "The user with this email is already registered in the system";
 
     } else if (dataBaseConnectionResult === "Registration is successful") {
         message.textContent = "";
 
-        ModalManagement("Реєстрація успішна!", "#message-modal", "#close-modal-message", registrationForm);
+        ModalManagement("Registration is successful!", "#message-modal", "#close-modal-message", registrationForm);
 
         setTimeout(() => registrationForm.submit(), 5000);
     }

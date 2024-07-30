@@ -101,7 +101,7 @@ main {
     text-align: center;
     font-size: 1rem;
     padding: 0.3125rem;
-    color: #ffbc03;
+    color: #fff;
     background-color: #038cff;
     border-color: #053053;
     cursor: pointer;
@@ -111,13 +111,11 @@ main {
 .modal-form-button:focus,
 .modal-form-button:hover {
     background-color: #053053;
-    color: #fff;
 }
 
 #button-modal-save {
     font-size: 1.125rem;
     padding: 0.5rem;
-    color: #fff;
     background-color: #053053;
     border-color: #053053;
 }
@@ -126,7 +124,6 @@ main {
 #button-modal-save:hover {
     background-color: #038cff;
     border-color: #038cff;
-    color: #ffbc03;
 }
 
 .modal-field-input:disabled {
@@ -154,7 +151,7 @@ main {
 @media (max-width: 425px) {
     .authorization {
         gap: 1rem;
-        padding: 1rem 0.625rem;
+        padding: 1.25rem 1.875rem;
     }
 
     .authorization-title {
