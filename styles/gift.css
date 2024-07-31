@@ -50,7 +50,7 @@ main {
 .gift-availability {
     text-align: center;
     color: #038cff;
-    font-size: 0.9375rem;
+    font-size: 1rem;
 }
 
 .gift-additional {
@@ -258,7 +258,7 @@ main {
     }
 
     .gift-name {
-        font-size: 1.375rem;
+        font-size: 1.25rem;
     }
 
     .gift-category {
@@ -270,11 +270,15 @@ main {
     }
 
     .gift-availability {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
     }
 
     .gift-additional {
         font-size: 1rem;
+    }
+
+    .gift-buttons button {
+        font-size: 0.875rem;
     }
 
     /* -------------------------------------------------------------- Modal Adaptive -------------------------------------------------------------- */
