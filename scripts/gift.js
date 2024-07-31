@@ -102,6 +102,10 @@ if (modalPhone) modalPhone.addEventListener("input", gaps);
 
 if (modalAddress) modalAddress.addEventListener("blur", removeSpaces);
 
+const closeModalOrder = document.getElementById("close-modal-order");
+
+if (closeModalOrder) closeModalOrder.addEventListener("click", () => modalPrice.textContent = priceOne.toFixed(2));
+
 const orderForm = document.getElementById("order-form");
 
 if (orderForm) orderForm.addEventListener("submit", (e) => {

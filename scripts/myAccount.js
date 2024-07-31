@@ -241,6 +241,20 @@ if (numberInputs) numberInputs.forEach(function (numberInput) {
 
 const allPrice = document.querySelector(".all-price");
 
+function resetThePrice() {
+    if (basket && basket.length > 0) {
+        const modalPrices = document.querySelectorAll(".one-price");
+
+        if (modalPrices.length > 0) {
+            modalPrices.forEach((modalPrice, index) => {
+                if (basket[index]) {
+                    modalPrice.textContent = basket[index].price;
+                }
+            });
+        }
+    }
+}
+
 function calculateTotalPrice() {
     const modalPrices = document.querySelectorAll(".one-price");
 
@@ -293,6 +307,13 @@ function orderGifts() {
 
     return gifts;
 }
+
+const basketCloseButton = document.getElementById("basket-close-button");
+
+if (basketCloseButton) basketCloseButton.addEventListener("click", () => {
+    resetThePrice();
+    calculateTotalPrice();
+});
 
 if (orderForm) orderForm.addEventListener("submit", (e) => {
     e.preventDefault();
